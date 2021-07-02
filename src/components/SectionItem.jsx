@@ -13,7 +13,7 @@ const SectionItem = props => {
 
     return (
         <li>
-            <Link to={`/${link}` }className={SectionStyles}>{itemName}</Link>
+            <Link to={`/${link}` } className={SectionStyles}>{itemName}</Link>
         </li>
     )
 };

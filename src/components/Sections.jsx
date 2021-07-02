@@ -3,13 +3,13 @@ import React from 'react'
 import SectionItem from './SectionItem';
 
 const Sections = ({ section }) => {
+    
     return (
         <header className="sections">
             <ul className="sections__items">
                 <SectionItem 
                     itemName="Photography"
                     link="portfolio"
-                    isSelected
                 />
                 <SectionItem 
                     itemName="Filmmaking"
