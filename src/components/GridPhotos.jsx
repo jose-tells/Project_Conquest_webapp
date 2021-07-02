@@ -1,10 +1,10 @@
 import React from 'react'
 import GridFormat from '../components/GridFormat'
 
-export default function GridPhotos({ ForLoop }) {
+const GridPhotos = ({ ForLoop, Grid }) => {
 
     return (
-        <section className="gridPhotos">
+        <section className={Grid}>
             {
                 ForLoop.map((item)=> (
                     <GridFormat 
@@ -16,4 +16,6 @@ export default function GridPhotos({ ForLoop }) {
             }
         </section>
     )
-}
+};
+
+export default GridPhotos;

@@ -17,6 +17,7 @@ const Portfolio = () => {
                 section="Photography"
             />
             <GridPhotos 
+                Grid="gridPhotos"
                 ForLoop={ PortfolioImages }
             />
             <Footer />

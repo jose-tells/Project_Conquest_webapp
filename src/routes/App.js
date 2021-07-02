@@ -5,6 +5,7 @@ import Home from '../Containers/Home'
 import Hub from '../Containers/Hub';
 import Portfolio from '../Containers/Portfolio';
 import Filmmaking from '../Containers/Filmmaking';
+import Ilustration from '../Containers/Ilustration';
 
 const App = () => (
     <BrowserRouter>
@@ -13,6 +14,7 @@ const App = () => (
             <Route exact path="/hub" component={Hub}/>
             <Route exact path="/portfolio" component={Portfolio}/>
             <Route exact path="/filmmaking" component={Filmmaking}/>
+            <Route exact path="/ilustration" component={Ilustration}/>
         </Switch>
     </BrowserRouter>
 );
