@@ -10,7 +10,7 @@ export const MenuItems = [
     {
         id: 1,
         name: 'PORTFOLIO',
-        url: '/photography',
+        url: '/portfolio',
         className: 'nav-links'
     },
     {

@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        publicPath: '/',
     },
     resolve: {
         extensions : ['.js', '.jsx']
@@ -53,6 +54,7 @@ module.exports = {
         open: true,
         port: 6969,
         lazy: false,
+        historyApiFallback: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
