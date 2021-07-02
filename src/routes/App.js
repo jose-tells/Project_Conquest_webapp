@@ -6,6 +6,7 @@ import Hub from '../Containers/Hub';
 import Portfolio from '../Containers/Portfolio';
 import Filmmaking from '../Containers/Filmmaking';
 import Ilustration from '../Containers/Ilustration';
+import About from '../Containers/About';
 
 const App = () => (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => (
             <Route exact path="/portfolio" component={Portfolio}/>
             <Route exact path="/filmmaking" component={Filmmaking}/>
             <Route exact path="/ilustration" component={Ilustration}/>
+            <Route exact path="/about" component={About}/>
         </Switch>
     </BrowserRouter>
 );

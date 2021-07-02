@@ -1,0 +1,64 @@
+.gridAbout__item:nth-child(1)
+    grid-column 1/4
+    transition all 0.5s
+    aboutGrid()
+    .gridAbout__item--image
+        background-image url("/src/assets/static/img/Agustin-Blog.jpg")
+        background-position center
+        background-repeat no-repeat
+        background-size cover
+        aboutImage()
+    .gridAbout__item--specialty
+        justify-self flex-start
+        align-self center
+        grid-column 1/2
+        grid-row 12/13
+        transform rotate(-90deg) translateY(-0.5rem)
+        specialtyStyle()
+
+.gridAbout__item:nth-child(1).open
+    grid-column 1/10
+    z-index 100
+    transition all 0.5s
+
+.gridAbout__item:nth-child(2)
+    grid-column 4/7
+    aboutGrid()
+    .gridAbout__item--image
+        background-image url("/src/assets/static/img/mi_cara.jpg") 
+        background-position center
+        background-repeat no-repeat
+        background-size cover
+        aboutImage()
+    .gridAbout__item--specialty:nth-child(2)
+        align-self flex-end
+        justify-self flex-start
+        grid-column 1/4
+        grid-row 9/12
+        transform rotate(-90deg) translate(0.3rem, -4.7rem)
+        specialtyStyle()
+    .gridAbout__item--specialty:nth-child(3)
+        justify-self flex-end
+        align-self center
+        grid-column 1/4
+        grid-row 1/4
+        transform rotate(-90deg) translate(-0.5rem, 6rem)
+        specialtyStyle()
+
+
+.gridAbout__item:nth-child(3)
+    grid-column 7/10
+    aboutGrid()
+    .gridAbout__item--image
+        background-image url("/src/assets/static/img/Frame-hermanos H.jpg") 
+        background-position center 
+        background-repeat no-repeat
+        background-size cover
+        aboutImage()
+    .gridAbout__item--specialty
+        justify-self flex-end
+        align-self center
+        grid-column 1/4
+        grid-row 1/4
+        transform rotate(-90deg) translateY(5.5rem)
+        specialtyStyle()

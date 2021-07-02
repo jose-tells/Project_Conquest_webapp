@@ -5,7 +5,7 @@ import Sections from '../components/Sections';
 import GridVideo from '../components/GridVideo'
 import Footer from '../components/Footer';
 // Styles
-import '../assets/styles/FIlmmakingImports.styl'
+import '../assets/styles/FilmmakingImports.styl'
 
 const Filmmaking = () => {
     return(
