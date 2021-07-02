@@ -1,0 +1,77 @@
+//MIXINS
+//__mixin title__
+title()
+    grid-column 1/6
+    grid-row 7/8
+    width: 100%
+    // border: solid color1
+slideShow()
+    max-width: 100%
+    overflow: hidden
+
+menuSlideBar()
+    display: flex  
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    position: fixed
+    height: 100%
+    width: 100%
+    background-color: opacidad(color4, 0.9)
+    z-index:20
+    // border: 1px solid color3
+
+specialtyStyle()
+    font-family fuente-principal
+    text-transform uppercase
+    color color8
+    font-size titlesFontSize + .2rem
+    // letter-spacing
+
+aboutGrid()
+    grid-row 1/11
+    display grid
+    grid-template-columns repeat(3, 1fr)
+    grid-template-rows repeat(12, 1fr) 
+    overflow hidden
+
+aboutImage()
+    grid-column 1/4
+    grid-row 1/13
+    height 100vh    
+    overflow hidden
+
+aboutTitle()
+    grid-column 1/10
+    grid-row 5/8
+    justify-self center
+    align-self center
+    font-family fuente-principal
+    font-size titlesFontSize + 1rem
+    text-transform uppercase
+    letter-spacing .4rem
+    color color7
+    z-index 10
+
+aboutAnimation()
+    justify-self center
+    align-self center
+    z-index 0
+
+videoDescription()
+    font-family fuente-principal
+
+titleVideoDescription()
+    font-size titlesFontSize + 0.2rem
+    font-weight 900
+    color color3
+
+captionVideoDescription()
+    font-weight 500
+    font-size textFontSize - 0.3rem
+    color color8
+
+authorVideoDescription()
+    font-weight 300
+    font-size textFontSize - 0.4rem
+    color color8

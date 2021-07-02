@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 //MENU DATA
 import { MenuItems } from '../../MenuItems';
-//STYLE
-// import './styles/components/menuSlideBar.css'
 
 const MenuSlide = ({open, handleClick}) => {
     //CONDICIONED STYLE USING PROPS (OPEN)
