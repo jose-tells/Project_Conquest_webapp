@@ -1,8 +1,16 @@
 import React from 'react'
+// Classnames
+import classNames from 'classnames';
 
-const Footer = () => {
+const Footer = ({ isDark }) => {
+
+    const FooterStyles = classNames('footer', {
+            isDark,
+        }
+    )
+
     return (
-        <footer className="footer">
+        <footer className={FooterStyles}>
             <div className="footer__contact">
                 <p>josemarquinez28@gmail.com</p>
                 <p>(+507) 63820564</p>

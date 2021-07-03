@@ -9,16 +9,18 @@ import '../assets/styles/FilmmakingImports.styl'
 
 const Filmmaking = () => {
     return(
-        <>
+        <main className="Filmmaking-body">
             <MenuNav 
-                isHome
+                isDark
             />
             <Sections 
                 section="Filmmaking"
             />
             <GridVideo />
-            <Footer />
-        </>
+            <Footer 
+                isDark
+            />
+        </main>
     )
 };
 

@@ -1,26 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//MENU DATA
+//MenuData
 import { MenuItems } from '../../MenuItems';
+// classnames
+import classNames from 'classnames';
 
-const MenuSlide = ({open, handleClick}) => {
-    //CONDICIONED STYLE USING PROPS (OPEN)
+const MenuSlide = props => {
+    
+    const {open, handleClick, isLight} = props;
+    
+    //Conditioned style using props
     const styleTop = ()=>{
         return{
             top: open ? "0" : "-100%"
         }
     }
 
+    const StylesMenuSlide = classNames('container-menu-bar', {
+        isLight: isLight,
+    })
+
     return (
-        //CONTEINER OF MENU WITH CONDICIONED STYLE
-        <div className='container-menu-bar' open ={open} style={styleTop()}>
-        {/*BUTTON TO MAKE CLOSE THE MENU*/}
-            <div className='menu-close-button'>
-                <div onClick={handleClick}></div>
-            </div>
+        //Container of the menu with conditioned style 
+        <div className={StylesMenuSlide} open ={open} style={styleTop()}>
+        {/* Button to make close the Menu  */}
+            <div className='menu-close-button' onClick={handleClick}>X</div>
             <ul>
                 {
-                    //MAP OF MENUITEMS
+                    // Map of the MenuItems
                     MenuItems.map((items, id)=>{
                         return(
                             <li key={id}>

@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 const MenuNav = props => {
 
-    const { isHome } = props;
+    const { isDark, isLight } = props;
 
     const [open,setOpen] = useState(false)
     //FUNCTION EVENT HANDLECLICK -> IS A PROP -> CHANGE THE STATE OF OPEN FROM FALSE TO TRUE
@@ -17,7 +17,7 @@ const MenuNav = props => {
     }
 
     const LogoStyle = classNames('logo',{
-        isHome
+        isDark
     })
 
     return(
@@ -27,6 +27,7 @@ const MenuNav = props => {
             <MenuSlide 
                 open={open} 
                 handleClick={handleClick}  
+                isLight = {isLight}
             />
             <MenuNavButton 
                 open={open} 

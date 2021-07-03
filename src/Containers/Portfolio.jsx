@@ -12,7 +12,9 @@ import { PortfolioImages } from '../../PortfolioImages';
 const Portfolio = () => {
     return (
         <>
-            <MenuNav />
+            <MenuNav 
+                isLight = {false}
+            />
             <Sections 
                 section="Photography"
             />

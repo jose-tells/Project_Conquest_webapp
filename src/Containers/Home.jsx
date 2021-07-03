@@ -17,7 +17,8 @@ const Home = () => {
                 <source src={VideoReel}/>
             </video>
             <MenuNav 
-                isHome
+                isDark
+                isLight 
             />
             <main className="wrap_container">
                 <ButtonReel />
