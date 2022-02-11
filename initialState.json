@@ -1,0 +1,17 @@
+{
+  "photos": [],
+  "videos": [],
+  "carousel": [],
+  "player": {},
+  "sections": [
+    {
+      "name": "Photography"
+    },
+    {
+      "name": "Illustration"
+    },
+    {
+      "name": "Filmmaking"
+    }
+  ]
+}

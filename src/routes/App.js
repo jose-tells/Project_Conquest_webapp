@@ -4,7 +4,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from '../Containers/Home'
 import Hub from '../Containers/Hub';
 import Portfolio from '../Containers/Portfolio';
+import PhotographyCarousel from '../Containers/PhotographyCarousel';
 import Filmmaking from '../Containers/Filmmaking';
+import VideoPlayer from '../Containers/VideoPlayer';
 import Ilustration from '../Containers/Ilustration';
 import About from '../Containers/About';
 import Contact from '../Containers/Contact';
@@ -14,8 +16,10 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/hub" component={Hub}/>
-            <Route exact path="/portfolio" component={Portfolio}/>
+            <Route exact path="/photography" component={Portfolio}/>
+            <Route exact path="/carousel/:id" component={PhotographyCarousel}/>
             <Route exact path="/filmmaking" component={Filmmaking}/>
+            <Route exact path="/player" component={VideoPlayer}/>
             <Route exact path="/ilustration" component={Ilustration}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/contact" component={Contact}/>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SeeMoreButton = () => {
     return (
-        <Link to="/photography" className="grid__link" >
+        <Link to="/portfolio" className="grid__link" >
             See More
         </Link>
     )

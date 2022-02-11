@@ -1,0 +1,72 @@
+@import '../Vars.styl'
+
+.Carousel-body
+    display flex
+    flex-direction column
+    justify-content space-between
+    height 100vh
+    background-color color4
+
+.sliderReel__header
+    display flex
+    justify-content space-between
+    align-items center
+    .sliderReel__header--number
+        font-family fuente-principal
+        font-size 1.6rem
+        font-weight 300
+        color color8
+        margin 1rem 
+    .sliderReel__header--buttons
+        display flex
+        justify-content space-between
+        width 4rem
+        margin 1rem
+        button
+            font-size 1.8rem
+            color color8 
+            border none
+            background transparent
+            
+.sliderReel__slider
+    display flex
+    max-width 100%
+    height 70vh
+    align-items center
+    flex-wrap nowrap
+    overflow-x scroll
+    // overscroll-behavior-x contain
+    // scroll-snap-type x proximity 
+    .sliderReel__photo
+        display flex
+        align-items center
+        min-width 100%
+        height 70vh
+        // scroll-snap-align center
+        overflow hidden
+        img
+            width 100%
+            // scroll-snap-align center
+
+    // .sliderReel__photo--vertical
+    //     min-width 100%
+    //     height 100%
+    //     scroll-snap-align center
+    //     overflow hidden
+    //     img
+    //         width 100%
+
+.sliderReel__showcase
+    display grid
+    grid-template-columns repeat(5, 1fr)
+    grid-template-rows repeat(1, 1fr)
+    flex-wrap nowrap
+    column-gap 0.2rem
+    width 90%
+    height 10%
+    margin 0 0 3rem 0
+    align-self center
+    background color8
+    div 
+        border 1px solid color1
+

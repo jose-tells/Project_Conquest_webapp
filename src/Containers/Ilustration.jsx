@@ -4,12 +4,15 @@ import MenuNav from '../components/MenuNav'
 import Sections from '../components/Sections'
 import GridPhotos from '../components/GridPhotos'
 import Footer from '../components/Footer'
-// Ilustrations
-import {PortfolioIlustrations} from '../../PortfolioIlustrations'
 // Styles
 import '../assets/styles/components/GridIlustrations.styl'
+// Connect from redux
+import { connect } from 'react-redux'
 
-const Ilustration = () => {
+const Ilustration = props => {
+
+    const { ilustrations } = props;
+
     return (
         <>
             <MenuNav />
@@ -17,13 +20,20 @@ const Ilustration = () => {
                 section="Ilustration"
             />
             <GridPhotos 
+                media={ilustrations}
                 Grid="gridIlustrations"
-                ForLoop = { PortfolioIlustrations }
+                OpenCarousel={() => props.history.push('/carousel')}
             />
             <Footer />
         </>
     )
 };
 
-export default Ilustration;
+const mapStateToProps = state => {
+    return {
+        ilustrations: state.ilustrations
+    }
+}
+
+export default connect(mapStateToProps, null)(Ilustration);
 

@@ -13,23 +13,23 @@ const GridPortf = () => {
     return (
         <section className="grid">
             <GridFormat
-                gridNumber="one"
+                styles="one"
                 media={Photo1}
             />
             <GridFormat
-                gridNumber="two"
+                styles="two"
                 media={Photo2}
             />
             <GridFormat
-                gridNumber="three"
+                styles="three"
                 media={Photo3}
             />
             <GridFormat
-                gridNumber="four"
+                styles="four"
                 media={Photo4}
             />
             <GridFormat
-                gridNumber="five"
+                styles="five"
                 media={Photo5}
             />
         </section>
