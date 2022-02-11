@@ -1,21 +1,7 @@
-import React from 'react'
-import GridFormat from '../components/GridFormat'
+import React from "react";
 
-const GridPhotos = ({ ForLoop, Grid }) => {
-
-    return (
-        <section className={Grid}>
-            {
-                ForLoop.map((item)=> (
-                    <GridFormat 
-                        key = {item.id} 
-                        gridNumber = {item.name}
-                        media = {item.media}
-                    />
-                ))
-            }
-        </section>
-    )
+const GridPhotos = ({ children }) => {
+  return <section className="gridPhotos">{children}</section>;
 };
 
 export default GridPhotos;

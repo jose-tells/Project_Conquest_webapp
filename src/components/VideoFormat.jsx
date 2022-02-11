@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 
-const VideoFormat = ({name, Video}) => {
+const VideoFormat = ({styles, source}) => {
     return(
-        <div className={name}>
-            <video autoPlay muted loop controls={false}>
-                <source src={Video} type="video/mp4"/>
+        <Link to="/player" className={styles}>
+            <video autoPlay muted loop >
+                <source src={source} type="video/mp4"/>
             </video>
-        </div>
+        </Link>
     )
 };
 
