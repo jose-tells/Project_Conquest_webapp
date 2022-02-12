@@ -14,9 +14,11 @@ import { getAPIVideos } from "../actions";
 
 // const { V_API, V_API_KEY, V_API_COLLECTION_ID } = process.env;
 const Filmmaking = ({ videos, getAPIVideos }) => {
-  const pages = 4;
+
+  const hasVideos = videos.length > 0
 
   React.useEffect(() => {
+    const pages = 4;
     getAPIVideos(
       process.env.V_API,
       process.env.V_API_COLLECTION_ID,
@@ -25,29 +27,29 @@ const Filmmaking = ({ videos, getAPIVideos }) => {
     );
   }, []);
 
+  const isOdd = (number) => {
+    if (number % 2 === 0) {
+      return "right";
+    }
+    return "left";
+  };
+
   return (
     <main className="Filmmaking-body">
       <MenuNav isDark />
       <Sections section="Filmmaking" />
-      {videos.length > 0 && (
+      {hasVideos && (
         <GridVideo>
-          {videos.map((item) => (
+          {videos.map((item, index) => (
             <VideoFormat
               key={item.id}
               source={item.media.link}
-              styles="video1"
-            />
+              position={isOdd(index + 1)}
+              hasVideos={hasVideos}
+            >
+              <VideoDescription position={isOdd(index + 1)}/>
+            </VideoFormat>
           ))}
-
-          {/* {videos.map((item) => (
-          <VideoDescription
-            key={item.id}
-            descriptionStyles={item.descriptionStyles}
-            title={item.title}
-            caption={item.caption}
-            autor={item.autor}
-          />
-        ))} */}
         </GridVideo>
       )}
       <Footer isDark />

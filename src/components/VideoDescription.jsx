@@ -1,16 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const VideoDescription = props => {
-
-    const {descriptionStyles, title, caption, autor} = props;
-
-    return (
-        <div className={descriptionStyles}>
-            <h2 className="description--title">{title}</h2>
-            <p className="description--caption">{caption}</p>
-            <p className="description--author">{autor}</p>
-        </div>
-    )
+const VideoDescription = ({ title, caption, author, position }) => {
+  return (
+    <div className={`description ${position}`}>
+      <h2 className="description--title">What a mess</h2>
+      <p className="description--caption">A Music struggle</p>
+      <p className="description--author">{author}</p>
+    </div>
+  );
 };
 
 export default VideoDescription;
