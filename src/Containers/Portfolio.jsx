@@ -11,24 +11,24 @@ import "../assets/styles/PortfolioImports.styl";
 // Connect from redux
 import { connect } from "react-redux";
 import { getAPIPhotos } from "../actions";
+import SectionsWithItems from "../components/SectionsWithItems";
 
-const Portfolio = ({ photos, getAPIPhotos, sections }) => {
-
+const Portfolio = ({ photos, getAPIPhotos, history }) => {
   React.useEffect(() => {
-    getAPIPhotos(process.env.P_API, process.env.P_API_USER, process.env.P_API_ACCESS_KEY);
+    getAPIPhotos(
+      process.env.P_API,
+      process.env.P_API_USER,
+      process.env.P_API_ACCESS_KEY
+    );
   }, []);
 
   return (
     <>
       <MenuNav isLight={false} />
-      <Sections section="Photography">
-        {sections.map((section) => (
-          <SectionItem
-            key={section.name}
-            section={section.name}
-          />
-        ))}
-      </Sections>
+      <SectionsWithItems
+        sectionName="photography"
+        location={history.location.pathname}
+      />
       {photos && (
         <GridPhotos Grid="gridPhotos">
           {photos.map((item) => (
@@ -44,7 +44,6 @@ const Portfolio = ({ photos, getAPIPhotos, sections }) => {
 const mapStateToProps = (state) => {
   return {
     photos: state.photos,
-    sections: state.sections,
   };
 };
 

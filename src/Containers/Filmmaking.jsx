@@ -6,6 +6,8 @@ import GridVideo from "../components/GridVideo";
 import Footer from "../components/Footer";
 import VideoFormat from "../components/VideoFormat";
 import VideoDescription from "../components/VideoDescription";
+// HOCs
+import SectionsWithItems from "../components/SectionsWithItems";
 // Styles
 import "../assets/styles/FilmmakingImports.styl";
 // Redux
@@ -13,7 +15,7 @@ import { connect } from "react-redux";
 import { getAPIVideos } from "../actions";
 
 // const { V_API, V_API_KEY, V_API_COLLECTION_ID } = process.env;
-const Filmmaking = ({ videos, getAPIVideos }) => {
+const Filmmaking = ({ videos, getAPIVideos, history }) => {
 
   const hasVideos = videos.length > 0
 
@@ -37,7 +39,10 @@ const Filmmaking = ({ videos, getAPIVideos }) => {
   return (
     <main className="Filmmaking-body">
       <MenuNav isDark />
-      <Sections section="Filmmaking" />
+      <SectionsWithItems
+        sectionName="illustration"
+        location={history.location.pathname}
+      />
       {hasVideos && (
         <GridVideo>
           {videos.map((item, index) => (
