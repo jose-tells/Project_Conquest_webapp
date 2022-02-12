@@ -7,7 +7,7 @@ import Portfolio from '../Containers/Portfolio';
 import PhotographyCarousel from '../Containers/PhotographyCarousel';
 import Filmmaking from '../Containers/Filmmaking';
 import VideoPlayer from '../Containers/VideoPlayer';
-import Ilustration from '../Containers/Ilustration';
+import Illustration from '../Containers/Illustration';
 import About from '../Containers/About';
 import Contact from '../Containers/Contact';
 
@@ -20,7 +20,7 @@ const App = () => (
             <Route exact path="/carousel/:id" component={PhotographyCarousel}/>
             <Route exact path="/filmmaking" component={Filmmaking}/>
             <Route exact path="/player" component={VideoPlayer}/>
-            <Route exact path="/ilustration" component={Ilustration}/>
+            <Route exact path="/illustration" component={Illustration}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/contact" component={Contact}/>
         </Switch>
