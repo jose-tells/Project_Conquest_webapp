@@ -29,7 +29,7 @@ const Home = ({ getAPIVideo, player }) => {
           <source src={player.link} />
         </video>
       )}
-      <MenuNav isDark isLight />
+      <MenuNav isDark />
       <main className="wrap_container">
         <ButtonReel />
         <Title />

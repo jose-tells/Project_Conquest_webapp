@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 // COMPONENTS
 import MenuNavButton from "./MenuNavButton";
 import MenuSlide from "./MenuSlide";
+import MenuSlideItem from "./MenuSlideItem";
 // Classnames
 import classNames from "classnames";
 
-const MenuNav = (props) => {
-  const { isDark, isLight } = props;
+const MenuNav = ({ isDark }) => {
+  const [isOpen, setOpen] = useState(false);
 
-  const [open, setOpen] = useState(false);
   const handleClick = () => {
-    setOpen(!open);
+    setOpen(!isOpen);
   };
 
   const LogoStyle = classNames("logo", {
@@ -23,10 +23,16 @@ const MenuNav = (props) => {
       <Link className={LogoStyle} to="/">
         PROJECT CONQUEST
       </Link>
-      <MenuSlide open={open} handleClick={handleClick} isLight={isLight} />
-      <MenuNavButton open={open} handleClick={handleClick} />
+      <MenuSlide isOpen={isOpen} handleClick={handleClick} isDark={isDark}>
+        {items.map((item) => (
+          <MenuSlideItem key={item} name={item} link={item} />
+        ))}
+      </MenuSlide>
+      <MenuNavButton open={isOpen} handleClick={handleClick} />
     </nav>
   );
 };
+
+const items = ["home", "about", "contact"];
 
 export default MenuNav;
