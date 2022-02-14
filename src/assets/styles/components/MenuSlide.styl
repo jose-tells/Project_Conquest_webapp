@@ -1,31 +1,31 @@
 
-.container-menu-bar
-    menuSlideBar()
-    transition: 1s linear
-    ul
-        list-style: none
-        
-    li
-        padding: 2em 2em
-        margin-top: 1.5em
-        margin-bottom: 1em
-.isLight
-    background color8
+.MenuSlide__container
+  width 100vw
+  position fixed
+  display flex
+  flex-direction column
+  justify-content flex-start
+  align-items flex-start
+  background-color color8
+  transition 1s ease
+  z-index 20
+  box-shadow 1px 0 4px color7
 
-.nav-links
-    text-decoration: none
-    font-family: fuente-principal
-    font-weight: 900
-    font-size: titlesFontSize + 3.5rem
-    color: color2
-    line-height: 1.2em 
-    text-align: left 
+.MenuSlide__items--container
+  margin 2rem
+  display flex
+  flex-direction column
+  gap 4rem
+  list-style none
 
-.menu-close-button
-    align-self: flex-end
-    margin: 7% 7% 7% 7%
-    font-family fuente-principal
-    font-weight 500
-    transform: scale(3.8)
-    color: color1
+.isDark
+  background color5
+  box-shadow none
+
+.MenuSlide__close
+  margin 1.5rem 2rem 0 0
+  align-self flex-end
+  font-size 4.8rem
+  font-weight 400
+  color color3
 
