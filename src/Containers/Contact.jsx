@@ -1,17 +1,15 @@
-import React from 'react'
+import React from "react";
 // Components
-import MenuNav from '../components/MenuNav'
-import GridContact from '../components/GridContact'
+import MenuNav from "../components/MenuNav";
+import GridContact from "../components/GridContact";
 // Styles
-import '../assets/styles/ContactImports.styl'
+import "../assets/styles/ContactImports.styl";
 
-const Contact = () => {
-    return(
-        <>
-            <MenuNav />
-            <GridContact />
-        </>
-    )
-};
+const Contact = () => (
+  <>
+    <MenuNav />
+    <GridContact />
+  </>
+);
 
 export default Contact;

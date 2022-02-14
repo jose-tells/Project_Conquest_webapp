@@ -10,23 +10,21 @@ import "../assets/styles/components/GridIlustrations.styl";
 // Connect from redux
 // import { connect } from "react-redux";
 
-const Illustration = ({ history }) => {
-  return (
-    <>
-      <MenuNav />
-      <SectionsWithItems
-        sectionName="illustration"
-        location={history.location.pathname}
-      />
-      {/* <GridPhotos
+const Illustration = ({ history }) => (
+  <>
+    <MenuNav />
+    <SectionsWithItems
+      sectionName="illustration"
+      location={history.location.pathname}
+    />
+    {/* <GridPhotos
         media={ilustrations}
         Grid="gridIlustrations"
         OpenCarousel={() => props.history.push("/carousel")}
       /> */}
-      <Footer />
-    </>
-  );
-};
+    <Footer />
+  </>
+);
 
 // const mapStateToProps = (state) => {
 //   return {

@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const VideoPlayer = () => {
-  return (
-    <div>Hola</div>
-  )
-};
+const VideoPlayer = () => <div>Hola</div>;
 
 export default VideoPlayer;

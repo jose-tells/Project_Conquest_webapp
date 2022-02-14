@@ -1,5 +1,5 @@
 import React from "react";
-//Styles
+// Styles
 import "../assets/styles/IndexImports.styl";
 // Components
 import MenuNav from "../components/MenuNav";
@@ -12,7 +12,6 @@ import { getAPIVideo } from "../actions";
 import { connect } from "react-redux";
 
 const Home = ({ getAPIVideo, player }) => {
-
   React.useEffect(() => {
     getAPIVideo(
       process.env.V_API,
@@ -26,7 +25,7 @@ const Home = ({ getAPIVideo, player }) => {
   return (
     <>
       {hasVideo && (
-        <video className="reel" autoPlay loop>
+        <video className="reel" autoPlay loop muted>
           <source src={player.link} />
         </video>
       )}

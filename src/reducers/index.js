@@ -19,12 +19,10 @@ const reducer = (state, action) => {
       };
     case "GET_PHOTOS":
       const photos =
-        action.payload.map((item) => {
-          return {
-            id: item.id,
-            media: item.urls["regular"],
-          };
-        }) || [];
+        action.payload.map((item) => ({
+          id: item.id,
+          media: item.urls.regular,
+        })) || [];
       return {
         ...state,
         photos,
@@ -36,15 +34,11 @@ const reducer = (state, action) => {
       };
     case "GET_VIDEOS":
       const videos =
-        action.payload.media.map((item) => {
-          return {
-            id: item.id,
-            media:
-              item.video_files.find((video) => {
-                return video.width === 1920 || 960;
-              }) || [],
-          };
-        }) || [];
+        action.payload.media.map((item) => ({
+          id: item.id,
+          media:
+            item.video_files.find((video) => video.width === 1920 || 960) || [],
+        })) || [];
       return {
         ...state,
         videos,
