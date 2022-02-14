@@ -1,19 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const HeaderReel = ({goBack, itemId}) => {
-
-    return(
-        <header className="sliderReel__header">
-            <h1 className="sliderReel__header--number">{itemId}/20</h1>
-            <div className="sliderReel__header--buttons">
-                <button>
-                </button>
-                <button onClick={goBack}>
-                X
-                </button>
-            </div>
-        </header>
-    )
-};
+const HeaderReel = ({ goBack, itemId }) => (
+  <header className="sliderReel__header">
+    <h1 className="sliderReel__header--number">{itemId}/20</h1>
+    <div className="sliderReel__header--buttons">
+      <button type="button">XD</button>
+      <button type="button" onClick={goBack}>
+        X
+      </button>
+    </div>
+  </header>
+);
 
 export default HeaderReel;

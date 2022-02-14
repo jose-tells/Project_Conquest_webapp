@@ -1,27 +1,25 @@
-import React, { useEffect } from 'react'
-//React-hook-inview (observer)
-import { useInView } from 'react-hook-inview';
+import React, { useEffect } from "react";
+// React-hook-inview (observer)
+import { useInView } from "react-hook-inview";
 
-const CarouselFormat = props => {
+const CarouselFormat = (props) => {
+  const { media, formatStyle, id, setId } = props;
 
-    const {media, formatStyle, id, setId } = props;
+  const [ref, isVisible] = useInView({
+    threshold: 0.5,
+  });
 
-    const [ref, isVisible] = useInView({
-        threshold: 0.5
-    });
+  useEffect(() => {
+    if (isVisible) {
+      setId(id);
+    }
+  }, [isVisible]);
 
-    useEffect(()=> {
-        if (isVisible) { 
-            setId(id)
-        }                      
-    }, [isVisible])
-
-
-    return(
-        <div className={formatStyle} ref={ref} >
-            <img src={media} alt="" />
-        </div>
-    )
+  return (
+    <div className={formatStyle} ref={ref}>
+      <img src={media} alt="" />
+    </div>
+  );
 };
 
-export default CarouselFormat
+export default CarouselFormat;

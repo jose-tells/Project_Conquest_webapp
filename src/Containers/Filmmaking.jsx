@@ -14,10 +14,8 @@ import "../assets/styles/FilmmakingImports.styl";
 import { connect } from "react-redux";
 import { getAPIVideos } from "../actions";
 
-// const { V_API, V_API_KEY, V_API_COLLECTION_ID } = process.env;
 const Filmmaking = ({ videos, getAPIVideos, history }) => {
-
-  const hasVideos = videos.length > 0
+  const hasVideos = videos.length > 0;
 
   React.useEffect(() => {
     const pages = 4;
@@ -52,7 +50,7 @@ const Filmmaking = ({ videos, getAPIVideos, history }) => {
               position={isOdd(index + 1)}
               hasVideos={hasVideos}
             >
-              <VideoDescription position={isOdd(index + 1)}/>
+              <VideoDescription position={isOdd(index + 1)} />
             </VideoFormat>
           ))}
         </GridVideo>

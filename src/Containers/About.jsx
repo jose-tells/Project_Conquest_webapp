@@ -1,15 +1,9 @@
-import React from 'react'
+import React from "react";
 // Components
-import GridAbout from '../components/GridAbout'
+import GridAbout from "../components/GridAbout";
 // Styles
-import '../assets/styles/AboutImports.styl'
+import "../assets/styles/AboutImports.styl";
 
-const About = () => {
-    return(
-        <>
-            <GridAbout />
-        </>
-    )
-};
+const About = () => <GridAbout />;
 
-export default About; 
+export default About;

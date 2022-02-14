@@ -10,35 +10,31 @@ import { connect } from "react-redux";
 // Actions
 import { findPhoto } from "../actions";
 
-const PhotographyCarousel = (props) => {
+const PhotographyCarousel = ({ findPhoto, match, carousel, history }) => {
   const [itemId, getId] = useState("");
 
-  const { carousel } = props;
+  const { id } = match.params;
 
-  const { id } = props.match.params;
-
-  const handleCallback = (itemId) => {
+  const handleCallback = () => {
     getId(itemId);
   };
 
   useEffect(() => {
-    props.findPhoto(id);
+    findPhoto(id);
   }, []);
 
   return (
     <main className="Carousel-body">
-      <HeaderCarousel itemId={itemId} goBack={() => props.history.goBack()} />
+      <HeaderCarousel itemId={itemId} goBack={() => history.goBack()} />
       <SliderCarousel media={carousel} setId={handleCallback} />
       <CarouselShowcase />
     </main>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    carousel: state.carousel,
-  };
-};
+const mapStateToProps = (state) => ({
+  carousel: state.carousel,
+});
 
 const mapDispatchToProps = {
   findPhoto,

@@ -41,11 +41,9 @@ const Portfolio = ({ photos, getAPIPhotos, history }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    photos: state.photos,
-  };
-};
+const mapStateToProps = (state) => ({
+  photos: state.photos,
+});
 
 const mapDispatchToProps = {
   getAPIPhotos,
