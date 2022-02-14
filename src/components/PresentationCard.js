@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// FontAwesome
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// Components
+import RedirectLink from "./RedirectLink";
 // Styles
 import "../assets/styles/components/PresentationCard.styl";
 
@@ -23,16 +21,7 @@ const PresentationCard = () => (
         <br />
         CREATING MORE CREATIVE STUFF!
       </h1>
-      <div className="PresentationCard__link--container">
-        <Link className="PresentationCard__link" to="/contact">
-          About Us
-          <FontAwesomeIcon
-            icon={faArrowRight}
-            className="Presentation__link--icon"
-          />
-        </Link>
-        <div className="PresentationCard__link--underline" />
-      </div>
+      <RedirectLink link="contact" linkText="About us" />
     </div>
   </div>
 );
