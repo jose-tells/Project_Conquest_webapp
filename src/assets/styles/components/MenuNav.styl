@@ -1,15 +1,27 @@
+@import "../vars.styl"
 
-.container-menu
-    display: flex
-    align-content:center
-    justify-content: space-between
-    // border: 2px solid color1
-    background-color transparent
-    .logo
-        padding 1.6rem 1rem
-        font-family: fuente-principal
-        font-size: textFontSize - 0.2rem
-        color: color4
-        text-decoration: none
-    .isDark
-        color color8
+.menuNav__container
+  display flex
+  padding 2rem
+  align-content center
+  justify-content space-between
+  background-color transparent
+
+.menuNav__logo
+  font-size textFontSize - 0.2rem
+  color color5
+  text-decoration none
+
+.menuNav__logo.isDark
+  color color8
+
+.menuNav__button
+  border none
+  background none
+  font-size textFontSize
+  color color1
+  outline none
+
+.menuNav__button.isOpen
+  color color8
+  z-index 100
