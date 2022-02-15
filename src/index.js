@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./routes/App";
+import "./assets/styles/Globals.styl";
 // Redux
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
