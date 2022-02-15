@@ -25,6 +25,11 @@ export const getVideos = (payload) => ({
   payload,
 });
 
+export const getProfile = (payload) => ({
+  type: "GET_PROFILE",
+  payload,
+});
+
 export const getAPIPhotos = (url, userId, ACCESS_KEY) => (dispatch) => {
   axios({
     url: `${url}/users/${userId}/photos?client_id=${ACCESS_KEY}`,

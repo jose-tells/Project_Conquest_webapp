@@ -3,6 +3,24 @@
   "videos": [],
   "carousel": [],
   "player": {},
+  "profiles": [
+    {
+      "name": "Agustin",
+      "photo": "/",
+      "description": "I'm Agustin"
+    },
+    {
+      "name": "Jose",
+      "photo": "/",
+      "description": "I'm Jose"
+    },
+    {
+      "name": "Jonathan",
+      "photo": "/",
+      "description": "I'm Jonathan"
+    }
+  ],
+  "profile": {},
   "sections": [
     {
       "name": "Photography"

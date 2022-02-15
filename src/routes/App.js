@@ -9,6 +9,7 @@ import Filmmaking from "../Containers/Filmmaking";
 import VideoPlayer from "../Containers/VideoPlayer";
 import Illustration from "../Containers/Illustration";
 import About from "../Containers/About";
+import Profile from "../Containers/Profile";
 import Contact from "../Containers/Contact";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/player" component={VideoPlayer} />
         <Route exact path="/illustration" component={Illustration} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/about/:name" component={Profile} />
         <Route exact path="/contact" component={Contact} />
       </Switch>
     </BrowserRouter>
