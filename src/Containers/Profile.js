@@ -20,11 +20,29 @@ const Profile = ({ match, getProfile, profile }) => {
 
   return hasProfile ? (
     <div className="profile__container">
+      {profile.specialty.map((item, index) => (
+        <div
+          key={item}
+          className={`profile__specialty--container ${
+            index === 1 ? "second" : ""
+          }`}
+        >
+          <span className="profile__specialty">{item}</span>
+        </div>
+      ))}
       <img className="profile__photo" src={AGUSTIN} alt="" />
       <ProfileDescription
         name={profile.name}
         description={profile.description}
       />
+      <button
+        type="button"
+        className={`profile__nextBtn ${
+          profile.specialty.length > 1 ? "left" : ""
+        }`}
+      >
+        <span className="profile__nextBtn--text">{profile.name}</span>
+      </button>
     </div>
   ) : (
     <div>Not found</div>

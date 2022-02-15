@@ -1,3 +1,5 @@
+@import "Vars.styl"
+
 .profile__container
   width 100vw
   height 100vh
@@ -11,3 +13,61 @@
   height 100%
   object-fit cover
   z-index -10
+
+.profile__specialty--container
+  position relative
+  display flex
+  justify-content flex-start
+  align-items flex-end
+  grid-column 1/2
+  grid-row 8/11
+
+.profile__specialty
+  position absolute
+  margin-left 1rem
+  font-size 2rem
+  font-weight 900
+  text-transform uppercase
+  color color8
+  transform-origin top left
+  transform rotate(-90deg) translateX(-1rem)
+
+.profile__specialty--container.second
+  display flex
+  justify-content flex-end
+  align-items flex-start
+  grid-column 5/6
+  grid-row 1/3
+
+.profile__specialty--container.second .profile__specialty
+  transform-origin bottom right
+  transform rotate(-90deg) translateX(1rem)
+
+.profile__nextBtn
+  display flex
+  justify-content center
+  align-items flex-start
+  position relative
+  width 5.8rem
+  height 22.2rem
+  grid-column 5/6
+  grid-row 1/4
+  justify-self flex-end
+  border none
+  outline none
+  background-color rgba(51, 48, 46, 0.5)
+
+.profile__nextBtn.left
+  grid-column 1/2
+  justify-self flex-start
+
+.profile__nextBtn--text
+  position absolute
+  margin-top 1rem
+  font-family fuente-principal
+  font-size titlesFontSize + 0.2rem
+  font-weight 900
+  text-transform uppercase
+  letter-spacing 0.3rem
+  color color8
+  transform rotate(-90deg) translateX(-50%)
