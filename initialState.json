@@ -7,16 +7,19 @@
     {
       "name": "Agustin",
       "photo": "/",
+      "specialty": ["vfx"],
       "description": "I’m a VFX artist based in Panama, Thriller movies are my inspiration and, why not... some of Hitchcock?"
     },
     {
       "name": "Jose",
       "photo": "/",
+      "specialty": ["photography", "filmmaking"],
       "description": "I’m a VFX artist based in Panama, Thriller movies are my inspiration and, why not... some of Hitchcock?"
     },
     {
       "name": "Jonathan",
       "photo": "/",
+      "specialty": ["illustration"],
       "description": "I’m a VFX artist based in Panama, Thriller movies are my inspiration and, why not... some of Hitchcock?"
     }
   ],
