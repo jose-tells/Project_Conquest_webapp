@@ -1,5 +1,5 @@
-//MIXINS
-//__mixin title__
+// Mixins
+
 title()
     grid-column 1/6
     grid-row 7/8
@@ -8,42 +8,6 @@ title()
 slideShow()
     max-width: 100%
     overflow: hidden
-
-specialtyStyle()
-    font-family fuente-principal
-    text-transform uppercase
-    color color8
-    font-size titlesFontSize + .2rem
-    // letter-spacing
-
-aboutGrid()
-    grid-row 1/11
-    display grid
-    grid-template-columns repeat(3, 1fr)
-    grid-template-rows repeat(12, 1fr) 
-    overflow hidden
-
-aboutImage()
-    grid-column 1/4
-    grid-row 1/13
-    height 100vh    
-    overflow hidden
-
-aboutTitle()
-    grid-column 1/11
-    grid-row 5/8
-    justify-self center
-    align-self center
-    font-family fuente-principal
-    font-size titlesFontSize + 1.5rem
-    text-transform uppercase
-    letter-spacing .4rem
-    color color7
-    z-index 10
-
-aboutAnimation()
-    z-index 0
-    transition all 1s ease-in
 
 videoDescription()
     font-family fuente-principal
