@@ -4,6 +4,7 @@ import "../assets/styles/IndexImports.styl";
 // Components
 import MenuNav from "../components/MenuNav";
 import Title from "../components/Title";
+import MenuSlideItem from "../components/MenuSlideItem";
 import SocialMedia from "../components/SocialMedia";
 import ButtonReel from "../components/ButtonReel";
 import ButtonContact from "../components/ButtonContact";
@@ -29,7 +30,11 @@ const Home = ({ getAPIVideo, player }) => {
           <source src={player.link} />
         </video>
       )}
-      <MenuNav isDark />
+      <MenuNav isDark>
+        {items.map((item) => (
+          <MenuSlideItem key={item} name={item} link={item} />
+        ))}
+      </MenuNav>
       <main className="wrap_container">
         <ButtonReel />
         <Title />
@@ -39,6 +44,8 @@ const Home = ({ getAPIVideo, player }) => {
     </>
   );
 };
+
+const items = ["portfolio", "about", "contact"];
 
 const mapStateToProps = (state) => ({
   player: state.player,

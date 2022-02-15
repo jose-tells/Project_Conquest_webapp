@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // COMPONENTS
-import MenuSlide from "./MenuSlide";
-import MenuSlideItem from "./MenuSlideItem";
 // Classnames
 import classNames from "classnames";
 // Styles
 import "../assets/styles/components/MenuNav.styl";
 
-const MenuNav = ({ isDark }) => {
+const MenuNav = ({ isDark, children }) => {
   const [isOpen, setOpen] = React.useState(false);
 
   const handleClick = () => {
@@ -17,6 +15,11 @@ const MenuNav = ({ isDark }) => {
 
   const logoStyle = classNames("menuNav__logo", {
     isDark,
+  });
+
+  const StylesMenuSlide = classNames("MenuSlide__container", {
+    isDark,
+    isOpen,
   });
 
   const menuNavButtonStyles = classNames("menuNav__button", {
@@ -28,11 +31,6 @@ const MenuNav = ({ isDark }) => {
       <Link className={logoStyle} to="/">
         PROJECT CONQUEST
       </Link>
-      <MenuSlide isOpen={isOpen} handleClick={handleClick} isDark={isDark}>
-        {items.map((item) => (
-          <MenuSlideItem key={item} name={item} link={item} />
-        ))}
-      </MenuSlide>
       <button
         type="button"
         className={menuNavButtonStyles}
@@ -40,10 +38,11 @@ const MenuNav = ({ isDark }) => {
       >
         Menu
       </button>
+      <div className={StylesMenuSlide}>
+        <ul className="MenuSlide__items--container">{children}</ul>
+      </div>
     </nav>
   );
 };
-
-const items = ["home", "about", "contact"];
 
 export default MenuNav;

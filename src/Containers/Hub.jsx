@@ -1,6 +1,7 @@
 import React from "react";
 // Components
 import MenuNav from "../components/MenuNav";
+import MenuSlideItem from "../components/MenuSlideItem";
 import PresentationCard from "../components/PresentationCard";
 import RedirectLink from "../components/RedirectLink";
 import LinkCard from "../components/LinkCard";
@@ -10,7 +11,11 @@ import "../assets/styles/HubImports.styl";
 
 const Hub = () => (
   <>
-    <MenuNav />
+    <MenuNav>
+      {items.map((item) => (
+        <MenuSlideItem key={item} name={item} link={item} />
+      ))}
+    </MenuNav>
     <PresentationCard />
     <section className="linkCards__wrapper">
       {sections.map((item) => (
@@ -22,6 +27,8 @@ const Hub = () => (
     <Footer />
   </>
 );
+
+const items = ["home", "about", "contact"];
 
 const sections = ["photography", "illustration", "filmmaking"];
 

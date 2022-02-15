@@ -1,17 +1,17 @@
 import React from "react";
 // Components
 import MenuNav from "../components/MenuNav";
-import Sections from "../components/Sections";
 import GridFormat from "../components/GridFormat";
 import GridPhotos from "../components/GridPhotos";
-import SectionItem from "../components/SectionItem";
 import Footer from "../components/Footer";
-// Styles
-import "../assets/styles/PortfolioImports.styl";
+import MenuSlideItem from "../components/MenuSlideItem";
+// HOCs
+import SectionsWithItems from "../components/SectionsWithItems";
 // Connect from redux
 import { connect } from "react-redux";
 import { getAPIPhotos } from "../actions";
-import SectionsWithItems from "../components/SectionsWithItems";
+// Styles
+import "../assets/styles/PortfolioImports.styl";
 
 const Portfolio = ({ photos, getAPIPhotos, history }) => {
   React.useEffect(() => {
@@ -24,7 +24,11 @@ const Portfolio = ({ photos, getAPIPhotos, history }) => {
 
   return (
     <>
-      <MenuNav isLight={false} />
+      <MenuNav>
+        {items.map((item) => (
+          <MenuSlideItem key={item} name={item} link={item} />
+        ))}
+      </MenuNav>
       <SectionsWithItems
         sectionName="photography"
         location={history.location.pathname}
@@ -40,6 +44,8 @@ const Portfolio = ({ photos, getAPIPhotos, history }) => {
     </>
   );
 };
+
+const items = ["home", "portfolio", "about", "contact"];
 
 const mapStateToProps = (state) => ({
   photos: state.photos,
