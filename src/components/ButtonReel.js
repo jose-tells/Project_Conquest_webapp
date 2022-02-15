@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// Styles
+import "../assets/styles/components/ButtonReel.styl";
 
 const ButtonReel = () => {
   const [player, setPlayer] = useState(false);

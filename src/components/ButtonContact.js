@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// Styles
+import "../assets/styles/components/ButtonContact.styl";
 
 const ButtonContact = () => (
-  <div className="conatiner-contactButton">
+  <div className="buttonContact__container">
     <Link to="/contact">CONTACT US!</Link>
   </div>
 );
