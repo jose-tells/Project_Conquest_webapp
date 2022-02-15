@@ -2,31 +2,58 @@
 @import "../Mixins.styl";
 
 .gridAbout__item--container
-  position relative
   width 33.33333%
   height 100vh
-  display flex
+  display grid
+  grid-template-columns repeat(5, 1fr)
+  grid-template-rows repeat(2, 1fr)
   overflow hidden
 
 .gridAbout__image
+  position fixed
   width 100%
   height 100%
   object-fit cover
   z-index 0
 
+// Grid items
+
 .gridAbout__specialty--container
-  position absolute
   display flex
-  flex-direction column
-  justify-content flex-end
-  transform rotate(-90deg) translateX(50%)
+  grid-column 1/3
+  grid-row 2/3
+  align-self flex-end
+  justify-self flex-start
 
 .gridAbout__specialty
-  // align-self center
   text-transform uppercase
   color color8
   font-size titlesFontSize + .2rem
   z-index 10
+  transform-origin top left
+  // transform rotate(-90deg)
 
-.gridAbout__specialty.second
-  display none
+.gridAbout__specialty--container.second
+  align-self flex-start
+  justify-content flex-end
+  grid-column 1/6
+  grid-row 1/2
+
+.gridAbout__specialty--container.second .gridAbout__specialty
+  transform-origin bottom right
+  transform rotate(-40deg)
+  // z-index 100
+
+// .gridAbout__specialty--container.right
+//   grid-column 1/6
+//   grid-row 1/2
+  // align-self flex-end
+  // justify-content flex-end
+  // transform rotate(0deg)
+
+// .gridAbout__specialty--container.right .gridAbout__specialty
+//   align-self flex-end
+//   justify-content flex-end
+//   transform rotate(0deg)
+
+
