@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 // HOCs
 import SectionsWithItems from "../components/SectionsWithItems";
 // Styles
-import "../assets/styles/components/GridIlustrations.styl";
 // Connect from redux
 // import { connect } from "react-redux";
 
