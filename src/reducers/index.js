@@ -17,6 +17,14 @@ const reducer = (state, action) => {
           state.videos.find((items) => items.id === Number(action.payload)) ||
           [],
       };
+    case "GET_PROFILE":
+      return {
+        ...state,
+        profile:
+          state.profiles.find(
+            (profile) => profile.name.toLowerCase() === action.payload
+          ) || [],
+      };
     case "GET_PHOTOS":
       const photos =
         action.payload.map((item) => ({
