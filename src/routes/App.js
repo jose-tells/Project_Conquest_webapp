@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 // Components
 import Home from "../Containers/Home";
-import Hub from "../Containers/Hub";
 import Portfolio from "../Containers/Portfolio";
+import Photography from "../Containers/Photography";
 import PhotographyCarousel from "../Containers/PhotographyCarousel";
 import Filmmaking from "../Containers/Filmmaking";
 import VideoPlayer from "../Containers/VideoPlayer";
@@ -16,8 +16,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/hub" component={Hub} />
-        <Route exact path="/photography" component={Portfolio} />
+        <Route exact path="/portfolio" component={Portfolio} />
+        <Route exact path="/photography" component={Photography} />
         <Route exact path="/carousel/:id" component={PhotographyCarousel} />
         <Route exact path="/filmmaking" component={Filmmaking} />
         <Route exact path="/player" component={VideoPlayer} />

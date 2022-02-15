@@ -1,58 +1,35 @@
 import React from "react";
 // Components
 import MenuNav from "../components/MenuNav";
-import GridFormat from "../components/GridFormat";
-import GridPhotos from "../components/GridPhotos";
-import Footer from "../components/Footer";
 import MenuSlideItem from "../components/MenuSlideItem";
-// HOCs
-import SectionsWithItems from "../components/SectionsWithItems";
-// Connect from redux
-import { connect } from "react-redux";
-import { getAPIPhotos } from "../actions";
+import PresentationCard from "../components/PresentationCard";
+import RedirectLink from "../components/RedirectLink";
+import LinkCard from "../components/LinkCard";
+import Footer from "../components/Footer";
 // Styles
-import "../assets/styles/PortfolioImports.styl";
+import "../assets/styles/HubImports.styl";
 
-const Portfolio = ({ photos, getAPIPhotos, history }) => {
-  React.useEffect(() => {
-    getAPIPhotos(
-      process.env.P_API,
-      process.env.P_API_USER,
-      process.env.P_API_ACCESS_KEY
-    );
-  }, []);
+const Portfolio = () => (
+  <>
+    <MenuNav>
+      {items.map((item) => (
+        <MenuSlideItem key={item} name={item} link={item} />
+      ))}
+    </MenuNav>
+    <PresentationCard />
+    <section className="linkCards__wrapper">
+      {sections.map((item) => (
+        <LinkCard key={item} cardTitle={item}>
+          <RedirectLink link={item} linkText="See More" />
+        </LinkCard>
+      ))}
+    </section>
+    <Footer />
+  </>
+);
 
-  return (
-    <>
-      <MenuNav>
-        {items.map((item) => (
-          <MenuSlideItem key={item} name={item} link={item} />
-        ))}
-      </MenuNav>
-      <SectionsWithItems
-        sectionName="photography"
-        location={history.location.pathname}
-      />
-      {photos && (
-        <GridPhotos Grid="gridPhotos">
-          {photos.map((item) => (
-            <GridFormat key={item.id} media={item.media} />
-          ))}
-        </GridPhotos>
-      )}
-      <Footer />
-    </>
-  );
-};
+const items = ["home", "about", "contact"];
 
-const items = ["home", "portfolio", "about", "contact"];
+const sections = ["photography", "illustration", "filmmaking"];
 
-const mapStateToProps = (state) => ({
-  photos: state.photos,
-});
-
-const mapDispatchToProps = {
-  getAPIPhotos,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
+export default Portfolio;
