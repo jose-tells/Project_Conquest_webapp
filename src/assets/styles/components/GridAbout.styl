@@ -1,35 +1,19 @@
+@import "../Vars.styl"
+@import "../Mixins.styl"
+
 .gridAbout
-    width 100%
-    display grid
-    grid-template-columns repeat(10, 1fr)
-    grid-template-rows repeat(10, 1fr)
-    overflow hidden
+  width 100vw
+  display flex
+  justify-content center
+  align-items center
+  overflow hidden
 
 .gridAbout__title
-    aboutTitle()
-
-.gridAbout__animation:nth-child(5)
-    justify-self center
-    align-self center
-    grid-column 2/6
-    grid-row 1/6
-    border solid color8
-    border-width 1px 1px 0 0 
-    aboutAnimation()
-
-// .gridAbout__animation:nth-child(6)
-//     justify-self center
-//     align-self flex-start
-//     grid-column 4/8
-//     border-left 1px solid color8
-//     transform translateY(33px)
-//     aboutAnimation()
-
-.gridAbout__animation:nth-child(7)
-    justify-self flex-start
-    align-self center
-    grid-column 6/10
-    grid-row 6/10
-    border 1px solid color8
-    border-width 0 0 1px 1px  
-    aboutAnimation()
+  position fixed
+  align-self center
+  font-size titlesFontSize + 1.5rem
+  text-align center
+  text-transform uppercase
+  letter-spacing .4rem
+  color color7
+  z-index 10
