@@ -1,26 +1,12 @@
-.container-socialMedia
-    // position absolute
-    grid-row:7/11
-    grid-column: 1/3
-    align-self: flex-end
-    justify-self: flex-start
-    transform translateX(-2.5rem)
-    // border 2px solid color2
-    a
-        display: flex
-        justify-content: center
-        align-items: center
-        padding: 3.2rem 0
-        transform: rotate(-90deg)
-        font-family: fuente-principal
-        text-decoration: none
-        color: color9
-        font-weight: 300;
-        font-size: textFontSize - .4rem
-        letter-spacing .07rem
+@import "../Vars.styl"
 
-.conatiner-icons
-    margin-right: .5rem
-    transform: scale(1.1)
-    color: color1
-    // transform: rotate(-90deg)
+.socialMedia__container
+  display flex
+  gap 1rem
+  width fit-content
+  align-self flex-end
+  margin 1rem 2rem 0 0
+
+.socialMedia__container>a
+  font-size textFontSize
+  color color2

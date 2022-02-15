@@ -1,16 +1,14 @@
 import React from "react";
-// Styles
-import "../assets/styles/IndexImports.styl";
 // Components
 import MenuNav from "../components/MenuNav";
 import Title from "../components/Title";
 import MenuSlideItem from "../components/MenuSlideItem";
-import SocialMedia from "../components/SocialMedia";
-import ButtonReel from "../components/ButtonReel";
-import ButtonContact from "../components/ButtonContact";
+// import ButtonReel from "../components/ButtonReel";
 // React-redux
 import { getAPIVideo } from "../actions";
 import { connect } from "react-redux";
+// Styles
+import "../assets/styles/Home.styl";
 
 const Home = ({ getAPIVideo, player }) => {
   React.useEffect(() => {
@@ -36,10 +34,8 @@ const Home = ({ getAPIVideo, player }) => {
         ))}
       </MenuNav>
       <main className="wrap_container">
-        <ButtonReel />
+        {/* <ButtonReel /> */}
         <Title />
-        <SocialMedia />
-        <ButtonContact />
       </main>
     </>
   );
