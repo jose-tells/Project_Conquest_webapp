@@ -1,6 +1,7 @@
 import React from "react";
 // Components
 import MenuNav from "../components/MenuNav";
+import MenuSlideItem from "../components/MenuSlideItem";
 // import GridPhotos from "../components/GridPhotos";
 import Footer from "../components/Footer";
 // HOCs
@@ -12,7 +13,11 @@ import "../assets/styles/components/GridIlustrations.styl";
 
 const Illustration = ({ history }) => (
   <>
-    <MenuNav />
+    <MenuNav>
+      {items.map((item) => (
+        <MenuSlideItem key={item} name={item} link={item} />
+      ))}
+    </MenuNav>
     <SectionsWithItems
       sectionName="illustration"
       location={history.location.pathname}
@@ -25,6 +30,8 @@ const Illustration = ({ history }) => (
     <Footer />
   </>
 );
+
+const items = ["home", "portfolio", "about", "contact"];
 
 // const mapStateToProps = (state) => {
 //   return {

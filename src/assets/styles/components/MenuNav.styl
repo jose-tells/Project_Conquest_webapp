@@ -1,13 +1,14 @@
 @import "../vars.styl"
 
 .menuNav__container
+  position relative
   display flex
-  padding 2rem
   align-content center
   justify-content space-between
   background-color transparent
 
 .menuNav__logo
+  padding 2rem
   font-size textFontSize - 0.2rem
   color color5
   text-decoration none
@@ -15,13 +16,45 @@
 .menuNav__logo.isDark
   color color8
 
+// Menu Slide
+
+.MenuSlide__container
+  position fixed
+  width 100vw
+  display flex
+  flex-direction column
+  justify-content flex-start
+  align-items flex-start
+  background-color color8
+  box-shadow 1px 0 4px color7
+  transform translateY(-100%)
+  transition 1s ease
+  z-index 20
+
+.MenuSlide__items--container
+  margin 8rem 2rem
+  display flex
+  flex-direction column
+  gap 4rem
+  list-style none
+
+.MenuSlide__container.isOpen
+  transform translateY(0)
+
+.MenuSlide__container.isDark
+  background color5
+  box-shadow none
+
+// Menu button
+
 .menuNav__button
+  padding 2rem
   border none
   background none
-  font-size textFontSize
+  font-size textFontSize - 0.2rem
   color color1
   outline none
+  z-index 30
 
 .menuNav__button.isOpen
   color color8
-  z-index 100

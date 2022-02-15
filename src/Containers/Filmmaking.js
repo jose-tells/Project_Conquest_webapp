@@ -1,7 +1,7 @@
 import React from "react";
 // Components
 import MenuNav from "../components/MenuNav";
-import Sections from "../components/Sections";
+import MenuSlideItem from "../components/MenuSlideItem";
 import GridVideo from "../components/GridVideo";
 import Footer from "../components/Footer";
 import VideoFormat from "../components/VideoFormat";
@@ -36,9 +36,13 @@ const Filmmaking = ({ videos, getAPIVideos, history }) => {
 
   return (
     <main className="Filmmaking-body">
-      <MenuNav isDark />
+      <MenuNav isDark>
+        {items.map((item) => (
+          <MenuSlideItem key={item} name={item} link={item} />
+        ))}
+      </MenuNav>
       <SectionsWithItems
-        sectionName="illustration"
+        sectionName="filmmaking"
         location={history.location.pathname}
       />
       {hasVideos && (
@@ -59,6 +63,8 @@ const Filmmaking = ({ videos, getAPIVideos, history }) => {
     </main>
   );
 };
+
+const items = ["home", "portfolio", "about", "contact"];
 
 const mapStateToProps = (state) => ({
   videos: state.videos,
