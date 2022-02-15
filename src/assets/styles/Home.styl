@@ -1,16 +1,14 @@
-@import "Vars.styl"
-@import "globals.styl"
+@import "./Vars.styl"
 
 .reel
   position fixed
   height 100vh
-  z-index -100
+  z-index -20
   filter grayscale()
 
 .wrap_container
-  height 90vh
-  overflow hidden
   height 91vh
   display grid
   grid-template-columns repeat(5, 1fr)
   grid-template-rows repeat(10, 1fr)
+  overflow hidden

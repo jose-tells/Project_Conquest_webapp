@@ -36,6 +36,7 @@ const Profile = ({ match, getProfile, profile }) => {
         <SocialMedia
           instagram={profile.socials.instagram}
           youtube={profile.socials.youtube}
+          twitter={profile.socials.twitter}
         />
       </ProfileDescription>
       <button

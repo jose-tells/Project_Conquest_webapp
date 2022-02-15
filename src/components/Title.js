@@ -25,16 +25,16 @@ const Title = () => {
 
   return (
     <div className="title__container">
-      <h2>We are</h2>
+      <h1 className="title__text">We are</h1>
       <div className="title__slideshow--container">
         {phrases.map((phrase) => (
-          <h1
+          <h2
             key={phrase}
-            className="slide"
+            className="text__slideshow"
             style={{ transform: `translate3d(${-id * 100.5}%,0,0)` }}
           >
             {phrase}
-          </h1>
+          </h2>
         ))}
       </div>
       <ButtonContact />
@@ -47,7 +47,7 @@ const Title = () => {
   );
 };
 
-const phrases = ["Project Conquest", "Creativity", "Madness"];
+const phrases = ["Project Conquest", "Creativity", "Madness", "Art"];
 const delay = 3500;
 
 export default Title;
