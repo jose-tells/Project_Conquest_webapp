@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 // Components
 import ProfileDescription from "../components/ProfileDescription";
+import SocialMedia from "../components/SocialMedia";
 // Redux
 import { getProfile } from "../actions";
 // Media
@@ -31,10 +32,12 @@ const Profile = ({ match, getProfile, profile }) => {
         </div>
       ))}
       <img className="profile__photo" src={AGUSTIN} alt="" />
-      <ProfileDescription
-        name={profile.name}
-        description={profile.description}
-      />
+      <ProfileDescription name={profile.name} description={profile.description}>
+        <SocialMedia
+          instagram={profile.socials.instagram}
+          youtube={profile.socials.youtube}
+        />
+      </ProfileDescription>
       <button
         type="button"
         className={`profile__nextBtn ${
