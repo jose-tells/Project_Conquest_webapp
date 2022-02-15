@@ -22,6 +22,7 @@ const reducer = (state, action) => {
         action.payload.map((item) => ({
           id: item.id,
           media: item.urls.regular,
+          orientation: item.width >= item.height ? "landscape" : "portrait",
         })) || [];
       return {
         ...state,

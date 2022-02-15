@@ -34,9 +34,14 @@ const Photography = ({ photos, getAPIPhotos, history }) => {
         location={history.location.pathname}
       />
       {photos && (
-        <GridPhotos Grid="gridPhotos">
+        <GridPhotos>
           {photos.map((item) => (
-            <GridFormat key={item.id} media={item.media} />
+            <GridFormat
+              key={item.id}
+              id={item.id}
+              media={item.media}
+              orientation={item.orientation}
+            />
           ))}
         </GridPhotos>
       )}
