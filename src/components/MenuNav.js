@@ -31,13 +31,12 @@ const MenuNav = ({ isDark, children }) => {
       <Link className={logoStyle} to="/">
         PROJECT CONQUEST
       </Link>
-      <button
-        type="button"
-        className={menuNavButtonStyles}
-        onClick={handleClick}
-      >
-        Menu
-      </button>
+      <div className={menuNavButtonStyles} onClick={handleClick}>
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
       <div className={StylesMenuSlide}>
         <ul className="MenuSlide__items--container">{children}</ul>
       </div>
