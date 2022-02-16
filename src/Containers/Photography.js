@@ -5,15 +5,23 @@ import GridFormat from "../components/GridFormat";
 import GridPhotos from "../components/GridPhotos";
 import Footer from "../components/Footer";
 import MenuSlideItem from "../components/MenuSlideItem";
+// Carousel
+import HeaderCarousel from "../components/HeaderCarousel";
+import CarouselShowcase from "../components/CarouselShowcase";
 // HOCs
 import SectionsWithItems from "../components/SectionsWithItems";
 // Connect from redux
 import { connect } from "react-redux";
 import { getAPIPhotos } from "../actions";
 // Styles
-import "../assets/styles/PortfolioImports.styl";
+import CarouselModal from "../Modal/CarouselModal";
 
 const Photography = ({ photos, getAPIPhotos, history }) => {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [mediaIndex, setMediaIndex] = React.useState(0);
+
+  const hasPhotos = photos.length > 0;
+
   React.useEffect(() => {
     getAPIPhotos(
       process.env.P_API,
@@ -21,6 +29,21 @@ const Photography = ({ photos, getAPIPhotos, history }) => {
       process.env.P_API_ACCESS_KEY
     );
   }, []);
+
+  const carouselStyles = () => {
+    const position = 7.8 / 2 + 7.8 * mediaIndex;
+    return {
+      transform: `translateX(calc(50% - ${position}rem))`,
+    };
+  };
+
+  const handleRight = () => {
+    if (mediaIndex !== photos.length - 1) setMediaIndex((prev) => prev + 1);
+  };
+
+  const handleLeft = () => {
+    if (mediaIndex > 0) setMediaIndex((prev) => prev - 1);
+  };
 
   return (
     <>
@@ -33,17 +56,53 @@ const Photography = ({ photos, getAPIPhotos, history }) => {
         sectionName="photography"
         location={history.location.pathname}
       />
-      {photos && (
+      {hasPhotos && (
         <GridPhotos>
-          {photos.map((item) => (
+          {photos.map((item, index) => (
             <GridFormat
               key={item.id}
-              id={item.id}
               media={item.media}
               orientation={item.orientation}
+              setModalOpen={setModalOpen}
+              setMediaIndex={() => setMediaIndex(index)}
             />
           ))}
         </GridPhotos>
+      )}
+      {modalOpen && (
+        <CarouselModal>
+          <HeaderCarousel itemId={mediaIndex + 1} setModalOpen={setModalOpen} />
+          <section className="sliderReel__slider">
+            <div
+              className="sliderReel__showcase--buttons left"
+              onClick={handleLeft}
+            />
+            {hasPhotos && (
+              <img
+                className="slider__reel--photo"
+                src={photos[mediaIndex].media}
+                alt=""
+              />
+            )}
+            <div
+              className="sliderReel__showcase--buttons right"
+              onClick={handleRight}
+            />
+          </section>
+          <CarouselShowcase carouselStyles={carouselStyles}>
+            {photos.map((item, index) => (
+              <div
+                key={item.id}
+                className={`sliderReel__showcaseImage--container ${
+                  index === mediaIndex ? "selected" : ""
+                }`}
+                onClick={() => setMediaIndex(index)}
+              >
+                <img className="" src={item.media} alt="" />
+              </div>
+            ))}
+          </CarouselShowcase>
+        </CarouselModal>
       )}
       <Footer />
     </>

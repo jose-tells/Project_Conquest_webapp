@@ -9,7 +9,7 @@ import VideoDescription from "../components/VideoDescription";
 // HOCs
 import SectionsWithItems from "../components/SectionsWithItems";
 // Styles
-import "../assets/styles/FilmmakingImports.styl";
+import "../assets/styles/Filmmaking.styl";
 // Redux
 import { connect } from "react-redux";
 import { getAPIVideos } from "../actions";
