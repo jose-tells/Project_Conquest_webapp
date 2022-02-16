@@ -1,27 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-
-const phrases = [
-  {
-    id: 0,
-    word: "Crazy",
-  },
-  {
-    id: 1,
-    word: "Gorgeus",
-  },
-  {
-    id: 2,
-    word: "Outstanding",
-  },
-  {
-    id: 3,
-    word: "Wonder",
-  },
-];
+import React from "react";
+// Styles
+import "../assets/styles/components/SliderTitle.styl";
 
 const SliderTitle = () => {
-  const [id, setId] = useState(0);
-  const timeOutRef = useRef(null);
+  const [id, setId] = React.useState(0);
+  const timeOutRef = React.useRef(null);
 
   const resetTimeOut = () => {
     if (timeOutRef.current) {
@@ -29,7 +12,7 @@ const SliderTitle = () => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     resetTimeOut();
 
     timeOutRef.current = setTimeout(() => {
@@ -47,11 +30,11 @@ const SliderTitle = () => {
       <div className="slider__container">
         {phrases.map((word) => (
           <h1
-            key={word.id}
+            key={word}
             className="slider__animation"
             style={{ transform: `translate(${-id * 100}%, 0)` }}
           >
-            {word.word}
+            {word}
           </h1>
         ))}
       </div>
@@ -59,5 +42,6 @@ const SliderTitle = () => {
     </div>
   );
 };
+const phrases = ["Crazy", "Gorgeous", "Outstanding", "Wonder"];
 
 export default SliderTitle;
