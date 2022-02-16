@@ -1,24 +1,31 @@
+@import "../Vars.styl"
+
 .slider
-    width 100%
-    grid-column 1/8
-    grid-row 1/4
-    align-self center
-    transform translateX(2.5rem)
-    .slider__text
-        font-size titlesFontSize + 0.3rem
-        font-family fuente-principal
-        color color5
-    .slider__container
-        min-width 100%
-        display flex
-        flex-wrap nowrap
-        transform translateX(-1.5rem)
-        overflow hidden
-        .slider__animation
-            min-width 100%
-            display inline
-            font-size titlesFontSize + 0.7rem
-            font-family fuente-principal
-            color color1
-            text-transform uppercase
-            transition 2.5s all         
+  width 100%
+  margin 2rem
+  grid-column 1/8
+  grid-row 2/4
+  align-self center
+
+.slider__container
+  min-width 100%
+  display flex
+  flex-wrap nowrap
+  transform translateX(-2rem)
+  overflow hidden
+
+.slider__animation
+  min-width 100%
+  margin-left 0.3rem
+  display inline
+  font-size titlesFontSize + 0.7rem
+  font-family fuente-principal
+  font-weight 900
+  color color1
+  text-transform uppercase
+  transition 2.5s all
+
+.slider__text
+  font-size titlesFontSize + 0.3rem
+  font-family fuente-principal
+  color color5

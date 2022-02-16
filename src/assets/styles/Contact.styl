@@ -1,0 +1,61 @@
+@import './Vars.styl'
+
+.gridContact
+  height 100vh
+  display grid
+  grid-template-columns repeat(6, 1fr)
+  grid-template-rows repeat(12, 1fr)
+  overflow hidden
+
+.grid__home--container
+  margin-right 2rem
+  grid-column 6/7
+  grid-row 1/2
+  justify-self flex-end
+  align-self center
+
+.grid__home--icon
+  font-size titlesFontSize
+  color color2
+
+.gridContact__button--container
+  display flex
+  flex-direction column
+  gap 0.2rem
+  margin-left 2rem
+  padding-bottom 0.5rem
+  height fit-content
+  grid-column 1/4
+  grid-row  7/8
+  align-self flex-end
+  justify-self flex-start
+
+.gridContact__button
+  display flex
+  gap 1rem
+  justify-content center
+  align-items center
+  outline none
+  border none
+  background transparent
+
+.gridContact__button--animation
+  width 0%
+  height 0.5px
+  background-color color2
+  transition 0.5s ease all
+
+.gridContact__button--animation.isOpen
+  width 100%
+
+.gridContact__button--text
+  font-family fuente-principal
+  font-weight 400
+  font-size textFontSize
+  color color5
+
+.gridContact__button--icon
+  font-size 1.5rem
+  align-self center
+  color color2
+
