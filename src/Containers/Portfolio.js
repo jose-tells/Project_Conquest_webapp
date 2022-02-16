@@ -7,7 +7,7 @@ import RedirectLink from "../components/RedirectLink";
 import LinkCard from "../components/LinkCard";
 import Footer from "../components/Footer";
 // Styles
-import "../assets/styles/HubImports.styl";
+import "../assets/styles/Portfolio.styl";
 
 const Portfolio = () => (
   <>

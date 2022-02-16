@@ -1,12 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 // Styles
 import "../assets/styles/components/GridFormat.styl";
 
-const GridFormat = ({ id, media, orientation }) => (
-  <Link to={`/carousel/${id}`} className={`gridItem ${orientation}`}>
-    <img src={media} alt="" />
-  </Link>
-);
+const GridFormat = ({ media, orientation, setModalOpen, setMediaIndex }) => {
+  const handleClick = () => {
+    setModalOpen(true);
+    setMediaIndex();
+  };
+
+  return (
+    <div onClick={handleClick} className={`gridItem ${orientation}`}>
+      <img src={media} alt="" />
+    </div>
+  );
+};
 
 export default GridFormat;
