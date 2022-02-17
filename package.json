@@ -29,6 +29,7 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "axios": "^0.25.0",
     "classnames": "^2.3.1",
+    "glob-parent": "^6.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-inview": "^4.3.10",
@@ -59,7 +60,7 @@
     "prettier": "^2.5.1",
     "stylus-loader": "^6.1.0",
     "url-loader": "^4.1.1",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.7.4"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --cache --fix",
