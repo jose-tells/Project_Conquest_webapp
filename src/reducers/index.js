@@ -18,12 +18,25 @@ const reducer = (state, action) => {
           [],
       };
     case "GET_PROFILE":
+      const profile =
+        state.profiles
+          .map((item, index) => ({
+            ...item,
+            position: index,
+            before:
+              state.profiles[
+                index === 0 ? state.profiles.length - 1 : index - 1
+              ],
+            next: state.profiles[
+              state.profiles.length - 1 === index ? 0 : index + 1
+            ],
+            length: state.profiles.length,
+          }))
+          .find((profile) => profile.name.toLowerCase() === action.payload) ||
+        [];
       return {
         ...state,
-        profile:
-          state.profiles.find(
-            (profile) => profile.name.toLowerCase() === action.payload
-          ) || [],
+        profile,
       };
     case "GET_PHOTOS":
       const photos =
