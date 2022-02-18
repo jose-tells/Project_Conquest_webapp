@@ -7,19 +7,19 @@ import ProfileMenuNav from "../components/ProfileMenuNav";
 import ProfileMenuNavItem from "../components/ProfileMenuNavItem";
 // Redux
 import { connect } from "react-redux";
-import { getProfile } from "../actions";
-// Media
-import AGUSTIN from "../assets/static/img/Agustin-Blog.jpg";
+import { getSpecificMedia, getProfile } from "../actions";
 // Styles
 import "../assets/styles/Profile.styl";
 
-const Profile = ({ match, getProfile, profile, history }) => {
+const Profile = ({ match, getSpecificMedia, profile }) => {
   const { name } = match.params;
+
+  console.log(profile);
 
   const hasProfile = Object.keys(profile).length > 0;
 
   React.useEffect(() => {
-    getProfile(name);
+    getSpecificMedia("Profiles", "title", name, getProfile);
   }, [name]);
 
   return hasProfile ? (
@@ -39,21 +39,24 @@ const Profile = ({ match, getProfile, profile, history }) => {
           <span className="profile__specialty">{item}</span>
         </div>
       ))}
-      <img className="profile__photo" src={AGUSTIN} alt="" />
-      <ProfileDescription name={profile.name} description={profile.description}>
+      <img className="profile__photo" src={profile.fileUrl} alt="" />
+      <ProfileDescription
+        name={profile.title}
+        description={profile.description}
+      >
         <SocialMedia
-          instagram={profile.socials.instagram}
-          youtube={profile.socials.youtube}
-          twitter={profile.socials.twitter}
+          instagram={profile?.socials.instagram}
+          youtube={profile?.socials.youtube}
+          twitter={profile?.socials.twitter}
         />
       </ProfileDescription>
       <Link
-        to={`/about/${profile.next?.name.toLowerCase()}`}
+        to={`/about/${profile.next?.title.toLowerCase()}`}
         className={`profile__nextBtn ${
           profile.specialty.length > 1 ? "left" : ""
         }`}
       >
-        <span className="profile__nextBtn--text">{profile.name}</span>
+        <span className="profile__nextBtn--text">{profile.title}</span>
       </Link>
     </div>
   ) : (
@@ -75,7 +78,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getProfile,
+  getSpecificMedia,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

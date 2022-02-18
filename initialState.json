@@ -1,44 +1,10 @@
 {
   "photos": [],
+  "illustrations": [],
   "videos": [],
-  "carousel": [],
   "player": {},
-  "profiles": [
-    {
-      "name": "Agustin",
-      "photo": "/",
-      "specialty": ["vfx"],
-      "description": "I’m a VFX artist based in Panama, Thriller movies are my inspiration and, why not... some of Hitchcock?",
-      "socials": {
-        "instagram": "",
-        "youtube": "",
-        "twitter": ""
-      }
-    },
-    {
-      "name": "Jose",
-      "photo": "/",
-      "specialty": ["photography", "filmmaking"],
-      "description": "I’m a VFX artist based in Panama, Thriller movies are my inspiration and, why not... some of Hitchcock?",
-      "socials": {
-        "instagram": "https://www.instagram.com/jose_tells/",
-        "youtube": "https://www.youtube.com/channel/UCwVzRO7kuvnpqfHL74udhIQ",
-        "twitter": "https://twitter.com/jose_tells"
-      }
-    },
-    {
-      "name": "Jonathan",
-      "photo": "/",
-      "specialty": ["illustration"],
-      "description": "I’m a VFX artist based in Panama, Thriller movies are my inspiration and, why not... some of Hitchcock?",
-      "socials": {
-        "instagram": "",
-        "youtube": "",
-        "twitter": ""
-      }
-    }
-  ],
-  "profile": {},
+  "profiles": [],
+  "profile": [],
   "sections": [
     {
       "name": "Photography"

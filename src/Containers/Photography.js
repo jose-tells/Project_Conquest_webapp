@@ -12,22 +12,18 @@ import CarouselShowcase from "../components/CarouselShowcase";
 import SectionsWithItems from "../components/SectionsWithItems";
 // Connect from redux
 import { connect } from "react-redux";
-import { getAPIPhotos } from "../actions";
+import { getAPIMedia, getPhotos } from "../actions";
 // Styles
 import CarouselModal from "../Modal/CarouselModal";
 
-const Photography = ({ photos, getAPIPhotos, history }) => {
+const Photography = ({ photos, getAPIMedia, history }) => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [mediaIndex, setMediaIndex] = React.useState(0);
 
   const hasPhotos = photos.length > 0;
 
   React.useEffect(() => {
-    getAPIPhotos(
-      process.env.P_API,
-      process.env.P_API_USER,
-      process.env.P_API_ACCESS_KEY
-    );
+    getAPIMedia("Photos", getPhotos);
   }, []);
 
   const carouselStyles = () => {
@@ -116,7 +112,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIPhotos,
+  getAPIMedia,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Photography);

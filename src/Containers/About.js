@@ -1,25 +1,40 @@
 import React from "react";
 // Components
 import AboutFormat from "../components/AboutFormat";
-// Media
-import AGUSTIN from "../assets/static/img/Agustin-Blog.jpg";
-import JOSE from "../assets/static/img/mi_cara.jpg";
-import JONNY from "../assets/static/img/Frame-hermanos H.jpg";
+// Redux
+import { getAPIMedia, getProfiles } from "../actions";
+import { connect } from "react-redux";
 // Styles
 import "../assets/styles/components/GridAbout.styl";
 
-const About = () => (
-  <main className="gridAbout">
-    <AboutFormat media={AGUSTIN} specialty="VFX" position="left" />
-    <AboutFormat
-      media={JOSE}
-      specialty="Filmmaking"
-      specialty2="Photography"
-      position="left"
-    />
-    <AboutFormat media={JONNY} specialty="Illustration" position="right" />
-    <h1 className="gridAbout__title">The Crazy Minds</h1>
-  </main>
-);
+const About = ({ profiles, getAPIMedia }) => {
+  console.log(profiles);
 
-export default About;
+  React.useEffect(() => {
+    getAPIMedia("Profiles", getProfiles);
+  }, []);
+  return (
+    <main className="gridAbout">
+      {profiles.length > 0 &&
+        profiles.map((item) => (
+          <AboutFormat
+            key={item.id}
+            media={item.media}
+            link={item.title.toLowerCase()}
+            // specialty={}
+          />
+        ))}
+      <h1 className="gridAbout__title">The Crazy Minds</h1>
+    </main>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  profiles: state.profiles,
+});
+
+const mapDispatchToProps = {
+  getAPIMedia,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(About);

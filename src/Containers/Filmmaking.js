@@ -12,19 +12,13 @@ import SectionsWithItems from "../components/SectionsWithItems";
 import "../assets/styles/Filmmaking.styl";
 // Redux
 import { connect } from "react-redux";
-import { getAPIVideos } from "../actions";
+import { getAPIMedia, getVideos } from "../actions";
 
-const Filmmaking = ({ videos, getAPIVideos, history }) => {
+const Filmmaking = ({ videos, getAPIMedia, history }) => {
   const hasVideos = videos.length > 0;
 
   React.useEffect(() => {
-    const pages = 4;
-    getAPIVideos(
-      process.env.V_API,
-      process.env.V_API_COLLECTION_ID,
-      pages,
-      process.env.V_API_KEY
-    );
+    getAPIMedia("Videos", getVideos);
   }, []);
 
   const isOdd = (number) => {
@@ -47,16 +41,24 @@ const Filmmaking = ({ videos, getAPIVideos, history }) => {
       />
       {hasVideos && (
         <GridVideo>
-          {videos.map((item, index) => (
+          <VideoFormat
+            source={videos[0].fileUrl}
+            // position={isOdd(index + 1)}
+          />
+          {/* {videos.map((item, index) => (
             <VideoFormat
               key={item.id}
-              source={item.media.link}
+              source={item.fileUrl}
               position={isOdd(index + 1)}
-              hasVideos={hasVideos}
             >
-              <VideoDescription position={isOdd(index + 1)} />
+              <VideoDescription
+                title={item.title}
+                caption={item.caption}
+                author={item.author}
+                position={isOdd(index + 1)}
+              />
             </VideoFormat>
-          ))}
+          ))} */}
         </GridVideo>
       )}
       <Footer isDark />
@@ -71,7 +73,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIVideos,
+  getAPIMedia,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filmmaking);
