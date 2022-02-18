@@ -5,18 +5,14 @@ import Title from "../components/Title";
 import MenuSlideItem from "../components/MenuSlideItem";
 // import ButtonReel from "../components/ButtonReel";
 // React-redux
-import { getAPIVideo } from "../actions";
+import { getAPIMedia, getVideo } from "../actions";
 import { connect } from "react-redux";
 // Styles
 import "../assets/styles/Home.styl";
 
-const Home = ({ getAPIVideo, player }) => {
+const Home = ({ getAPIMedia, player }) => {
   React.useEffect(() => {
-    getAPIVideo(
-      process.env.V_API,
-      process.env.V_API_VIDEO_ID,
-      process.env.V_API_KEY
-    );
+    getAPIMedia("Videos", getVideo);
   }, []);
 
   const hasVideo = Object.values(player).length > 0;
@@ -24,9 +20,7 @@ const Home = ({ getAPIVideo, player }) => {
   return (
     <>
       {hasVideo && (
-        <video className="reel" autoPlay loop muted>
-          <source src={player.link} />
-        </video>
+        <video className="reel" autoPlay loop muted src={player.fileUrl} />
       )}
       <MenuNav isDark>
         {items.map((item) => (
@@ -48,7 +42,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIVideo,
+  getAPIMedia,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

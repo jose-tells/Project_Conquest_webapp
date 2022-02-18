@@ -1,15 +1,20 @@
+const normalizer = (payload) =>
+  payload
+    .map((item) => ({
+      id: item.id,
+      title: item.title,
+      description: item.filename,
+      media: item.fileUrl,
+      position: item.position,
+      orientation:
+        item.dimensions.width >= item.dimensions.height
+          ? "landscape"
+          : "portrait",
+    }))
+    .sort((a, b) => a.position - b.position) || [];
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FIND_PHOTO":
-      return {
-        ...state,
-        carousel:
-          state.photos.find((items) => items.id === Number(action.payload)) ||
-          state.ilustrations.find(
-            (items) => items.id === Number(action.payload)
-          ) ||
-          [],
-      };
     case "FIND_VIDEO":
       return {
         ...state,
@@ -17,53 +22,44 @@ const reducer = (state, action) => {
           state.videos.find((items) => items.id === Number(action.payload)) ||
           [],
       };
-    case "GET_PROFILE":
-      const profile =
-        state.profiles
-          .map((item, index) => ({
-            ...item,
-            position: index,
-            before:
-              state.profiles[
-                index === 0 ? state.profiles.length - 1 : index - 1
-              ],
-            next: state.profiles[
-              state.profiles.length - 1 === index ? 0 : index + 1
-            ],
-            length: state.profiles.length,
-          }))
-          .find((profile) => profile.name.toLowerCase() === action.payload) ||
-        [];
+    case "GET_PROFILES":
+      const profiles = normalizer(action.payload);
       return {
         ...state,
-        profile,
+        profiles,
+      };
+    case "GET_PROFILE":
+      return {
+        ...state,
+        profile: action.payload || [],
       };
     case "GET_PHOTOS":
-      const photos =
-        action.payload.map((item) => ({
-          id: item.id,
-          media: item.urls.regular,
-          orientation: item.width >= item.height ? "landscape" : "portrait",
-        })) || [];
+      const photos = normalizer(action.payload);
       return {
         ...state,
         photos,
       };
+    case "GET_ILLUSTRATIONS":
+      const illustrations = normalizer(action.payload);
+      return {
+        ...state,
+        illustrations,
+      };
     case "GET_VIDEO":
       return {
         ...state,
-        player: action.payload.find((video) => video.width === 1920),
+        player:
+          action.payload.find((item) =>
+            item.title.toLowerCase().includes("project conquest")
+          ) || [],
       };
     case "GET_VIDEOS":
-      const videos =
-        action.payload.media.map((item) => ({
-          id: item.id,
-          media:
-            item.video_files.find((video) => video.width === 1920 || 960) || [],
-        })) || [];
       return {
         ...state,
-        videos,
+        videos:
+          action.payload.filter(
+            (item) => !item.title.toLowerCase().includes("project conquest")
+          ) || [],
       };
     default:
       return state;
