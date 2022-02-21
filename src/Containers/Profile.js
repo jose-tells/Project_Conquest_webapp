@@ -14,8 +14,6 @@ import "../assets/styles/Profile.styl";
 const Profile = ({ match, getSpecificMedia, profile }) => {
   const { name } = match.params;
 
-  console.log(profile);
-
   const hasProfile = Object.keys(profile).length > 0;
 
   React.useEffect(() => {

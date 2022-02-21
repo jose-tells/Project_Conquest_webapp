@@ -8,20 +8,19 @@ import { connect } from "react-redux";
 import "../assets/styles/components/GridAbout.styl";
 
 const About = ({ profiles, getAPIMedia }) => {
-  console.log(profiles);
-
   React.useEffect(() => {
     getAPIMedia("Profiles", getProfiles);
   }, []);
   return (
     <main className="gridAbout">
       {profiles.length > 0 &&
-        profiles.map((item) => (
+        profiles.map((item, index) => (
           <AboutFormat
             key={item.id}
-            media={item.media}
+            media={item.fileUrl}
             link={item.title.toLowerCase()}
-            // specialty={}
+            specialty={item.specialty}
+            isLastItem={index === profiles.length - 1}
           />
         ))}
       <h1 className="gridAbout__title">The Crazy Minds</h1>

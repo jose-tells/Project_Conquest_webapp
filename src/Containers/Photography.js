@@ -5,12 +5,13 @@ import GridFormat from "../components/GridFormat";
 import GridPhotos from "../components/GridPhotos";
 import Footer from "../components/Footer";
 import MenuSlideItem from "../components/MenuSlideItem";
-// Carousel
+import CarouselShowcaseItem from "../components/CarouselShowcaseItem";
 import HeaderCarousel from "../components/HeaderCarousel";
 import CarouselShowcase from "../components/CarouselShowcase";
+import BodyCarousel from "../components/BodyCarousel";
 // HOCs
 import SectionsWithItems from "../components/SectionsWithItems";
-// Connect from redux
+// React-redux
 import { connect } from "react-redux";
 import { getAPIMedia, getPhotos } from "../actions";
 // Styles
@@ -68,11 +69,7 @@ const Photography = ({ photos, getAPIMedia, history }) => {
       {modalOpen && (
         <CarouselModal>
           <HeaderCarousel itemId={mediaIndex + 1} setModalOpen={setModalOpen} />
-          <section className="sliderReel__slider">
-            <div
-              className="sliderReel__showcase--buttons left"
-              onClick={handleLeft}
-            />
+          <BodyCarousel handleRight={handleRight} handleLeft={handleLeft}>
             {hasPhotos && (
               <img
                 className="slider__reel--photo"
@@ -80,22 +77,16 @@ const Photography = ({ photos, getAPIMedia, history }) => {
                 alt=""
               />
             )}
-            <div
-              className="sliderReel__showcase--buttons right"
-              onClick={handleRight}
-            />
-          </section>
+          </BodyCarousel>
           <CarouselShowcase carouselStyles={carouselStyles}>
             {photos.map((item, index) => (
-              <div
+              <CarouselShowcaseItem
                 key={item.id}
-                className={`sliderReel__showcaseImage--container ${
-                  index === mediaIndex ? "selected" : ""
-                }`}
-                onClick={() => setMediaIndex(index)}
-              >
-                <img className="" src={item.media} alt="" />
-              </div>
+                index={index}
+                mediaIndex={mediaIndex}
+                setMediaIndex={setMediaIndex}
+                media={item.media}
+              />
             ))}
           </CarouselShowcase>
         </CarouselModal>

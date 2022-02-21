@@ -1,9 +1,15 @@
 @import "./Vars.styl"
 
-.reel
+.reel__container
   position fixed
+  width 100%
   height 100vh
   z-index -20
+  overflow hidden
+
+.reel
+  transform translateX(-35%)
+  height 100%
   filter grayscale()
 
 .wrap_container
