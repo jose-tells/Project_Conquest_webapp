@@ -1,17 +1,15 @@
 const normalizer = (payload) =>
-  payload
-    .map((item) => ({
-      id: item.id,
-      title: item.title,
-      description: item.filename,
-      media: item.fileUrl,
-      position: item.position,
-      orientation:
-        item.dimensions.width >= item.dimensions.height
-          ? "landscape"
-          : "portrait",
-    }))
-    .sort((a, b) => a.position - b.position) || [];
+  payload.map((item) => ({
+    id: item.id,
+    title: item.title,
+    description: item.filename,
+    media: item.fileUrl,
+    position: item.position,
+    orientation:
+      item.dimensions.width >= item.dimensions.height
+        ? "landscape"
+        : "portrait",
+  })) || [];
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,15 +21,19 @@ const reducer = (state, action) => {
           [],
       };
     case "GET_PROFILES":
-      const profiles = normalizer(action.payload);
       return {
         ...state,
-        profiles,
+        profiles: action.payload,
       };
     case "GET_PROFILE":
       return {
         ...state,
         profile: action.payload || [],
+      };
+    case "GET_PHOTO":
+      return {
+        ...state,
+        photo: action.payload || {},
       };
     case "GET_PHOTOS":
       const photos = normalizer(action.payload);

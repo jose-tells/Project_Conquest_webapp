@@ -50,9 +50,16 @@
     border 0.05rem solid color7
     outline none
     background transparent
+    -webkit-border-radius 0
   input::placeholder
     color color6
     opacity 0.2
+  input:focus
+    outline none
+    border-color rgba(240, 121, 35, 0.4)
+    box-shadow 0px 0px 2px rgba(240, 121, 35, 1)
+    -webkit-appearance none
+
 
 .contactForm__textarea
   margin-top 1rem
@@ -64,10 +71,18 @@
   border 0.05rem solid color7
   outline none
   background transparent
+  resize none
+  -webkit-appearance none
+  -webkit-border-radius 0
 
 .contactForm__textarea::placeholder
   color color6
   opacity 0.2
+
+.contactForm__textarea:focus
+  outline none
+  border-color rgba(240, 121, 35, 0.4)
+  box-shadow 0px 0px 2px rgba(240, 121, 35, 1)
 
 .contactForm__button
   width 16rem

@@ -8,9 +8,15 @@
   justify-content center
   align-items center
 
-.PresentationCard__image
+.PresentationCard__image--container
   width 17rem
   height 34.4rem
+  overflow hidden
+
+.PresentationCard__image
+  transform translateX(-30%)
+  height 100%
+  object-fit cover
 
 .PresentationCard__text--container
   min-width 19.5rem

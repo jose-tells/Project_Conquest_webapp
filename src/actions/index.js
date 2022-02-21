@@ -10,6 +10,11 @@ export const findVideo = (payload) => ({
   payload,
 });
 
+export const getPhoto = (payload) => ({
+  type: "GET_PHOTO",
+  payload,
+});
+
 export const getPhotos = (payload) => ({
   type: "GET_PHOTOS",
   payload,
@@ -44,6 +49,8 @@ export const getAPIMedia = (collection, dispatchAction) => (dispatch) => {
   app
     .firestore()
     .collection(collection)
+    .orderBy("position")
+    // .limit()
     .get()
     .then(({ docs }) => {
       const docsList = docs.map((doc) => ({
@@ -68,7 +75,9 @@ export const getSpecificMedia =
             next: docs[index === docs.length - 1 ? 0 : index + 1]?.data(),
             id: doc.id,
           }))
-          .find((doc) => doc[param].toLowerCase() === value);
+          .find((doc) =>
+            doc[param].toLowerCase().includes(value.toLowerCase())
+          );
         dispatch(dispatchAction(docsList));
       })
       .catch(console.error);
