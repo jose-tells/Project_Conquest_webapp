@@ -42,6 +42,11 @@ const Portfolio = ({
         ))}
       </MenuNav>
       <PresentationCard photo={photo.fileUrl} caption={photo.caption} />
+      <div className="titlePortfolio__container">
+        <div className="titlePortfolio__strokes" />
+        <h1 className="titlePortfolio__text">Portfolio</h1>
+        <div className="titlePortfolio__strokes" />
+      </div>
       <section className="linkCards__wrapper">
         <LinkCard
           cardTitle="photography"
