@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/Footer.styl";
+import "@styles/components/Footer.styl";
 // Classnames
 import classNames from "classnames";
 

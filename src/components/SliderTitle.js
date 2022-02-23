@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/SliderTitle.styl";
+import "@styles/components/SliderTitle.styl";
 
 const SliderTitle = () => {
   const [id, setId] = React.useState(0);

@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 // Components
-import Home from "../Containers/Home";
-import Portfolio from "../Containers/Portfolio";
-import Photography from "../Containers/Photography";
-import Filmmaking from "../Containers/Filmmaking";
-import Illustration from "../Containers/Illustration";
-import About from "../Containers/About";
-import Profile from "../Containers/Profile";
-import Contact from "../Containers/Contact";
+import Home from "@containers/Home";
+import Portfolio from "@containers/Portfolio";
+import Photography from "@containers/Photography";
+import Filmmaking from "@containers/Filmmaking";
+import Illustration from "@containers/Illustration";
+import About from "@containers/About";
+import Profile from "@containers/Profile";
+import Contact from "@containers/Contact";
 
 function App() {
   return (

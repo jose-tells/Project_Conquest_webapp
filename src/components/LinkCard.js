@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/LinkCard.styl";
+import "@styles/components/LinkCard.styl";
 
 const LinkCard = ({ cardTitle, children, renderImagesReel, media }) => {
   const [position, setPosition] = React.useState(0);

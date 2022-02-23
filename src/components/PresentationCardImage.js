@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/styles/components/PresentationCardImage.styl";
+import "@styles/components/PresentationCardImage.styl";
 
 const PresentationCardImage = ({ media, caption }) => (
   <div className="PresentationCard__image--container">

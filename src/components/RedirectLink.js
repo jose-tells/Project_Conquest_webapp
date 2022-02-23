@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Styles
-import "../assets/styles/components/RedirectLink.styl";
+import "@styles/components/RedirectLink.styl";
 
 const RedirectLink = ({ link, linkText }) => (
   <div className="RedirectLink__container">

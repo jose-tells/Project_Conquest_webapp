@@ -8,7 +8,7 @@ import {
   faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
 // Styles
-import "../assets/styles/components/ContactSocials.styl";
+import "@styles/components/ContactSocials.styl";
 
 const ContactSocials = () => (
   <div className="gridContact__socialMedia">

@@ -1,19 +1,19 @@
 import React from "react";
 // Components
-import MenuNav from "../components/MenuNav";
-import GridFormat from "../components/GridFormat";
-import GridPhotos from "../components/GridPhotos";
-import Footer from "../components/Footer";
-import MenuSlideItem from "../components/MenuSlideItem";
-import CarouselShowcaseItem from "../components/CarouselShowcaseItem";
-import HeaderCarousel from "../components/HeaderCarousel";
-import CarouselShowcase from "../components/CarouselShowcase";
-import BodyCarousel from "../components/BodyCarousel";
+import MenuNav from "@components/MenuNav";
+import GridFormat from "@components/GridFormat";
+import GridPhotos from "@components/GridPhotos";
+import Footer from "@components/Footer";
+import MenuSlideItem from "@components/MenuSlideItem";
+import CarouselShowcaseItem from "@components/CarouselShowcaseItem";
+import HeaderCarousel from "@components/HeaderCarousel";
+import CarouselShowcase from "@components/CarouselShowcase";
+import BodyCarousel from "@components/BodyCarousel";
 import CarouselModal from "../Modal/CarouselModal";
 // Skeletons
 import { GridPhotosSkeleton } from "../LoadingSkeletons/GridPhotosSkeleton";
 // HOCs
-import SectionsWithItems from "../components/SectionsWithItems";
+import SectionsWithItems from "@components/SectionsWithItems";
 // React-redux
 import { connect } from "react-redux";
 import { getAPIMedia, getPhotos, onLoading } from "../actions";

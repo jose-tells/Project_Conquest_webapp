@@ -1,7 +1,7 @@
 import React from "react";
 
 // Styles
-import "../assets/styles/components/ProfileDescription.styl";
+import "@styles/components/ProfileDescription.styl";
 
 const ProfileDescription = ({ name, description, children }) => (
   <div className="profileDescription__description--container">

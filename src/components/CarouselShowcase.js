@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/CarouselShowcase.styl";
+import "@styles/components/CarouselShowcase.styl";
 
 const CarouselShowcase = ({ children, carouselStyles }) => (
   <section className="sliderReel__showcase--container">

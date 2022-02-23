@@ -3,7 +3,7 @@ import React from "react";
 import { faInfo, faXmark, faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Styles
-import "../assets/styles/components/HeaderReel.styl";
+import "@styles/components/HeaderReel.styl";
 
 const HeaderReel = ({ itemId, setModalOpen }) => (
   <header className="sliderReel__header">

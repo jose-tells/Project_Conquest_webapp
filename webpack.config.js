@@ -2,6 +2,9 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -10,8 +13,14 @@ module.exports = {
     filename: "bundle.js",
     publicPath: "/",
   },
+  mode: "production",
   resolve: {
     extensions: [".js"],
+    alias: {
+      "@components": path.resolve(__dirname, "src/components/"),
+      "@styles": path.resolve(__dirname, "src/assets/styles/"),
+      "@containers": path.resolve(__dirname, "src/Containers/"),
+    },
   },
   module: {
     rules: [
@@ -50,14 +59,6 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-    compress: true,
-    port: 3000,
-    historyApiFallback: true,
-  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "assets/[name].css",
@@ -67,5 +68,10 @@ module.exports = {
       filename: "./index.html",
     }),
     new Dotenv(),
+    new CleanWebpackPlugin(),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+  },
 };
