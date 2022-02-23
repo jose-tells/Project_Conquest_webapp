@@ -31,6 +31,7 @@
     "no-unused-expressions": "off",
     "no-unused-vars": "warn",
     "no-use-before-define": "off",
-    "react/no-unescaped-entities": "warn"
+    "react/no-unescaped-entities": "warn",
+    "import/no-unresolved": "off"
   }
 }

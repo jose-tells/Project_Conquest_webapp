@@ -1,12 +1,12 @@
 import React from "react";
 // Components
-import MenuNav from "../components/MenuNav";
-import MenuSlideItem from "../components/MenuSlideItem";
-import PresentationCard from "../components/PresentationCard";
-import PresentationCardImage from "../components/PresentationCardImage";
-import RedirectLink from "../components/RedirectLink";
-import LinkCard from "../components/LinkCard";
-import Footer from "../components/Footer";
+import MenuNav from "@components/MenuNav";
+import MenuSlideItem from "@components/MenuSlideItem";
+import PresentationCard from "@components/PresentationCard";
+import PresentationCardImage from "@components/PresentationCardImage";
+import RedirectLink from "@components/RedirectLink";
+import LinkCard from "@components/LinkCard";
+import Footer from "@components/Footer";
 // Loading Skeletons
 import { LinkCardSkeleton } from "../LoadingSkeletons/LinkCardSkeleton";
 import { PresentationCardSkeleton } from "../LoadingSkeletons/PresentationCardSkeleton";

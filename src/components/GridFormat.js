@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/GridFormat.styl";
+import "@styles/components/GridFormat.styl";
 
 const GridFormat = ({ media, orientation, setModalOpen, setMediaIndex }) => {
   const handleClick = () => {

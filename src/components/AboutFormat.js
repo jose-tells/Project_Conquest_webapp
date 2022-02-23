@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Styles
-import "../assets/styles/components/AboutFormat.styl";
+import "@styles/components/AboutFormat.styl";
 
 const AboutFormat = ({ media, link, specialty, isLastItem }) => (
   <Link to={`/about/${link}`} className="gridAbout__item--container">

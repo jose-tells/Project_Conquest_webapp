@@ -2,7 +2,7 @@ import React from "react";
 // Components
 import RedirectLink from "./RedirectLink";
 // Styles
-import "../assets/styles/components/PresentationCard.styl";
+import "@styles/components/PresentationCard.styl";
 
 const PresentationCard = ({ children }) => (
   <div className="PresentationCard__container">

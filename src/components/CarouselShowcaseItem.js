@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/CarouselShowcaseItem.styl";
+import "@styles/components/CarouselShowcaseItem.styl";
 
 const CarouselShowcaseItem = ({ mediaIndex, index, setMediaIndex, media }) => (
   <div

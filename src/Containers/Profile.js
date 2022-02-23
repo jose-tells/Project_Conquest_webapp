@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Components
-import ProfileDescription from "../components/ProfileDescription";
-import SocialMedia from "../components/SocialMedia";
-import ProfileMenuNav from "../components/ProfileMenuNav";
-import ProfileMenuNavItem from "../components/ProfileMenuNavItem";
+import ProfileDescription from "@components/ProfileDescription";
+import SocialMedia from "@components/SocialMedia";
+import ProfileMenuNav from "@components/ProfileMenuNav";
+import ProfileMenuNavItem from "@components/ProfileMenuNavItem";
 // Skeletons
 import { ProfileSkeleton } from "../LoadingSkeletons/ProfileSkeleton";
 // Redux
 import { connect } from "react-redux";
 import { getSpecificMedia, getProfile, onLoading } from "../actions";
 // Styles
-import "../assets/styles/Profile.styl";
+import "@styles/Profile.styl";
 
 const Profile = ({
   match,

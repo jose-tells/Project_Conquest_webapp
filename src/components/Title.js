@@ -2,7 +2,7 @@ import React from "react";
 import ButtonContact from "./ButtonContact";
 import SocialMedia from "./SocialMedia";
 // Styles
-import "../assets/styles/components/Title.styl";
+import "@styles/components/Title.styl";
 
 const Title = () => {
   const [id, setId] = React.useState(0);

@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/BodyCarousel.styl";
+import "@styles/components/BodyCarousel.styl";
 
 const BodyCarousel = ({ handleLeft, handleRight, children }) => (
   <section className="sliderReel__slider">

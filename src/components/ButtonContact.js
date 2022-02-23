@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Styles
-import "../assets/styles/components/ButtonContact.styl";
+import "@styles/components/ButtonContact.styl";
 
 const ButtonContact = () => (
   <div className="buttonContact__container">

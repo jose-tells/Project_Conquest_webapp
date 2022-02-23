@@ -1,13 +1,13 @@
 import React from "react";
 // Components
-import MenuNav from "../components/MenuNav";
-import Title from "../components/Title";
-import MenuSlideItem from "../components/MenuSlideItem";
+import MenuNav from "@components/MenuNav";
+import Title from "@components/Title";
+import MenuSlideItem from "@components/MenuSlideItem";
 // React-redux
 import { getAPIMedia, getVideo } from "../actions";
 import { connect } from "react-redux";
 // Styles
-import "../assets/styles/Home.styl";
+import "@styles/Home.styl";
 
 const Home = ({ getAPIMedia, player }) => {
   React.useEffect(() => {

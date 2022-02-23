@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Styles
-import "../assets/styles/components/MenuSlideItem.styl";
+import "@styles/components/MenuSlideItem.styl";
 
 const MenuSlideItem = ({ name, link }) => (
   <li className="item--container">

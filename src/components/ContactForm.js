@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/ContactForm.styl";
+import "@styles/components/ContactForm.styl";
 
 const ContactForm = ({ handleClose, isClose }) => {
   const [form, setForm] = React.useState({

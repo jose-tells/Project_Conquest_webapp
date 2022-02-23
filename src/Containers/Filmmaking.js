@@ -1,15 +1,15 @@
 import React from "react";
 // Components
-import MenuNav from "../components/MenuNav";
-import MenuSlideItem from "../components/MenuSlideItem";
-import GridVideo from "../components/GridVideo";
-import Footer from "../components/Footer";
-import VideoFormat from "../components/VideoFormat";
-import VideoDescription from "../components/VideoDescription";
+import MenuNav from "@components/MenuNav";
+import MenuSlideItem from "@components/MenuSlideItem";
+import GridVideo from "@components/GridVideo";
+import Footer from "@components/Footer";
+import VideoFormat from "@components/VideoFormat";
+import VideoDescription from "@components/VideoDescription";
 // HOCs
-import SectionsWithItems from "../components/SectionsWithItems";
+import SectionsWithItems from "@components/SectionsWithItems";
 // Styles
-import "../assets/styles/Filmmaking.styl";
+import "@styles/Filmmaking.styl";
 // Redux
 import { connect } from "react-redux";
 import { getAPIMedia, getVideos } from "../actions";

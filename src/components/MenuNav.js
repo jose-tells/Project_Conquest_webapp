@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Classnames
 import classNames from "classnames";
 // Styles
-import "../assets/styles/components/MenuNav.styl";
+import "@styles/components/MenuNav.styl";
 
 const MenuNav = ({ isDark, children }) => {
   const [isOpen, setOpen] = React.useState(false);

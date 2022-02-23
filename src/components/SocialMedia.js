@@ -7,7 +7,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 // Styles
-import "../assets/styles/components/SocialMedia.styl";
+import "@styles/components/SocialMedia.styl";
 
 const SocialMedia = ({ instagram, youtube, discord, twitter }) => (
   <div className="socialMedia__container">

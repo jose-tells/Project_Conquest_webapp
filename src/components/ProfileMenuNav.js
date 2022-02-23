@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/ProfileMenuNav.styl";
+import "@styles/components/ProfileMenuNav.styl";
 
 const ProfileMenuNav = ({ children }) => {
   const [isOpen, setOpen] = React.useState(false);

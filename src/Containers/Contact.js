@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Components
-import ContactForm from "../components/ContactForm";
-import SliderTitle from "../components/SliderTitle";
-import ContactSocials from "../components/ContactSocials";
+import ContactForm from "@components/ContactForm";
+import SliderTitle from "@components/SliderTitle";
+import ContactSocials from "@components/ContactSocials";
 // FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faHouse } from "@fortawesome/free-solid-svg-icons";
 // Modal
 import Modal from "../Modal";
 // Styles
-import "../assets/styles/Contact.styl";
+import "@styles/Contact.styl";
 
 const Contact = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState);

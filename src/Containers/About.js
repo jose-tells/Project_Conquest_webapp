@@ -1,13 +1,13 @@
 import React from "react";
 // Components
-import AboutFormat from "../components/AboutFormat";
+import AboutFormat from "@components/AboutFormat";
 // Skeletons
 import { AboutFormatSkeleton } from "../LoadingSkeletons/AboutFormatSkeleton";
 // Redux
 import { getAPIMedia, getProfiles, onLoading } from "../actions";
 import { connect } from "react-redux";
 // Styles
-import "../assets/styles/components/GridAbout.styl";
+import "@styles/components/GridAbout.styl";
 
 const About = ({ profiles, getAPIMedia, keyStates, onLoading }) => {
   React.useEffect(() => {
