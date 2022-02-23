@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../assets/styles/components/CarouselShowcase.styl";
+import "../assets/styles/components/CarouselShowcaseItem.styl";
 
 const CarouselShowcaseItem = ({ mediaIndex, index, setMediaIndex, media }) => (
   <div
@@ -9,7 +9,7 @@ const CarouselShowcaseItem = ({ mediaIndex, index, setMediaIndex, media }) => (
     }`}
     onClick={() => setMediaIndex(index)}
   >
-    <img className="" src={media} alt="" />
+    <img src={media} alt="" />
   </div>
 );
 

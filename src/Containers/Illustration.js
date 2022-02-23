@@ -8,6 +8,8 @@ import Footer from "../components/Footer";
 import CarouselModal from "../Modal/CarouselModal";
 import HeaderCarousel from "../components/HeaderCarousel";
 import CarouselShowcase from "../components/CarouselShowcase";
+import CarouselShowcaseItem from "../components/CarouselShowcaseItem";
+import BodyCarousel from "../components/BodyCarousel";
 // Skeletons
 import { GridPhotosSkeleton } from "../LoadingSkeletons/GridPhotosSkeleton";
 // HOCs
@@ -77,11 +79,7 @@ const Illustration = ({
       {modalOpen && (
         <CarouselModal>
           <HeaderCarousel itemId={mediaIndex + 1} setModalOpen={setModalOpen} />
-          <section className="sliderReel__slider">
-            <div
-              className="sliderReel__showcase--buttons left"
-              onClick={handleLeft}
-            />
+          <BodyCarousel handleRight={handleRight} handleLeft={handleLeft}>
             {hasIllustrations && (
               <img
                 className="slider__reel--photo"
@@ -89,22 +87,16 @@ const Illustration = ({
                 alt=""
               />
             )}
-            <div
-              className="sliderReel__showcase--buttons right"
-              onClick={handleRight}
-            />
-          </section>
+          </BodyCarousel>
           <CarouselShowcase carouselStyles={carouselStyles}>
             {illustrations.map((item, index) => (
-              <div
+              <CarouselShowcaseItem
                 key={item.id}
-                className={`sliderReel__showcaseImage--container ${
-                  index === mediaIndex ? "selected" : ""
-                }`}
-                onClick={() => setMediaIndex(index)}
-              >
-                <img className="" src={item.media} alt="" />
-              </div>
+                index={index}
+                mediaIndex={mediaIndex}
+                setMediaIndex={setMediaIndex}
+                media={item.media}
+              />
             ))}
           </CarouselShowcase>
         </CarouselModal>
