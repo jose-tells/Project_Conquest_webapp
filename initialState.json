@@ -16,5 +16,10 @@
     {
       "name": "Filmmaking"
     }
-  ]
+  ],
+  "keyStates": {
+    "loading": true,
+    "completed": false,
+    "error": false
+  }
 }

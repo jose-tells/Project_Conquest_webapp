@@ -11,19 +11,19 @@ import "../assets/styles/components/SocialMedia.styl";
 
 const SocialMedia = ({ instagram, youtube, discord, twitter }) => (
   <div className="socialMedia__container">
-    <a href={instagram}>
+    <a className="socialMedia__item" href={instagram}>
       <FontAwesomeIcon icon={faInstagram} />
     </a>
-    <a href={youtube}>
+    <a className="socialMedia__item" href={youtube}>
       <FontAwesomeIcon icon={faYoutube} />
     </a>
     {!!discord && (
-      <a href={discord}>
+      <a className="socialMedia__item" href={discord}>
         <FontAwesomeIcon icon={faDiscord} />
       </a>
     )}
     {!!twitter && (
-      <a href={twitter}>
+      <a className="socialMedia__item" href={twitter}>
         <FontAwesomeIcon icon={faTwitter} />
       </a>
     )}

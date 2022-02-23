@@ -9,8 +9,8 @@ const GridFormat = ({ media, orientation, setModalOpen, setMediaIndex }) => {
   };
 
   return (
-    <div onClick={handleClick} className={`gridItem ${orientation}`}>
-      <img src={media} alt="" />
+    <div onClick={handleClick} className={`gridItem__container ${orientation}`}>
+      <img className="gridItem__item" src={media} alt="" />
     </div>
   );
 };
