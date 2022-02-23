@@ -1,13 +1,14 @@
 
-.gridItem
+.gridItem__container
   display flex
   overflow-x hidden
   justify-content center
   align-items center
-  img
-    width 100%
-    height 100%
-    object-fit cover
+
+.gridItem__item
+  width 100%
+  height 100%
+  object-fit cover
 
 .landscape
   grid-column span 2
@@ -17,3 +18,5 @@
   grid-row span 4
   grid-column span 2
 
+.landscape.skeleton__container
+  height 12rem

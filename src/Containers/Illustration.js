@@ -8,19 +8,28 @@ import Footer from "../components/Footer";
 import CarouselModal from "../Modal/CarouselModal";
 import HeaderCarousel from "../components/HeaderCarousel";
 import CarouselShowcase from "../components/CarouselShowcase";
+// Skeletons
+import { GridPhotosSkeleton } from "../LoadingSkeletons/GridPhotosSkeleton";
 // HOCs
 import SectionsWithItems from "../components/SectionsWithItems";
 // Redux
 import { connect } from "react-redux";
-import { getAPIMedia, getIllustrations } from "../actions";
+import { getAPIMedia, getIllustrations, onLoading } from "../actions";
 
-const Illustration = ({ history, illustrations, getAPIMedia }) => {
+const Illustration = ({
+  history,
+  illustrations,
+  getAPIMedia,
+  keyStates,
+  onLoading,
+}) => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [mediaIndex, setMediaIndex] = React.useState(0);
 
   const hasIllustrations = illustrations.length > 0;
 
   React.useEffect(() => {
+    onLoading();
     getAPIMedia("Illustrations", getIllustrations);
   }, []);
 
@@ -51,9 +60,11 @@ const Illustration = ({ history, illustrations, getAPIMedia }) => {
         sectionName="illustration"
         location={history.location.pathname}
       />
-      {hasIllustrations && (
-        <GridPhotos>
-          {illustrations.map((item, index) => (
+      <GridPhotos>
+        {keyStates.loading && !keyStates.error && <GridPhotosSkeleton />}
+        {keyStates.complete &&
+          !keyStates.error &&
+          illustrations.map((item, index) => (
             <GridFormat
               key={item.id}
               media={item.media}
@@ -62,8 +73,7 @@ const Illustration = ({ history, illustrations, getAPIMedia }) => {
               setMediaIndex={() => setMediaIndex(index)}
             />
           ))}
-        </GridPhotos>
-      )}
+      </GridPhotos>
       {modalOpen && (
         <CarouselModal>
           <HeaderCarousel itemId={mediaIndex + 1} setModalOpen={setModalOpen} />
@@ -108,10 +118,12 @@ const items = ["home", "portfolio", "about", "contact"];
 
 const mapStateToProps = (state) => ({
   illustrations: state.illustrations,
+  keyStates: state.keyStates,
 });
 
 const mapDispatchToProps = {
   getAPIMedia,
+  onLoading,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Illustration);

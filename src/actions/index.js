@@ -45,6 +45,21 @@ export const getProfiles = (payload) => ({
   payload,
 });
 
+export const onComplete = (payload) => ({
+  type: "ON_COMPLETE",
+  payload,
+});
+
+export const onLoading = (payload) => ({
+  type: "ON_LOADING",
+  payload,
+});
+
+export const onError = (payload) => ({
+  type: "ON_ERROR",
+  payload,
+});
+
 export const getAPIMedia = (collection, dispatchAction) => (dispatch) => {
   app
     .firestore()
@@ -58,8 +73,12 @@ export const getAPIMedia = (collection, dispatchAction) => (dispatch) => {
         id: doc.id,
       }));
       dispatch(dispatchAction(docsList));
+      dispatch(onComplete());
     })
-    .catch(console.error);
+    .catch((err) => {
+      console.error(err);
+      dispatch(onError());
+    });
 };
 
 export const getSpecificMedia =
@@ -79,6 +98,10 @@ export const getSpecificMedia =
             doc[param].toLowerCase().includes(value.toLowerCase())
           );
         dispatch(dispatchAction(docsList));
+        dispatch(onComplete());
       })
-      .catch(console.error);
+      .catch((err) => {
+        dispatch(onError());
+        console.error(err);
+      });
   };

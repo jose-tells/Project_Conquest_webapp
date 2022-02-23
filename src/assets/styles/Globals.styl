@@ -1,17 +1,21 @@
-/* Metodologia Bem
-Bloque-elemento-modificador
-variables / mixins / funciones de primero
-selector{
-    funciones/mixins
-    displays
-    property of the display(grid or flexbox)
-    positions / width / height / top, lef, right, etc
-    fonts and styles
+/* BEM Methodology
+Block-element-modifier
+selector {
+  funciones/mixins
+  displays
+  property of the display(grid or flexbox)
+  positions / width / height / top, lef, right, etc
+  fonts
+  others
 }
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap')
 @import './Vars.styl'
+
+/*
+  Global styles
+*/
 
 *
   padding 0px
@@ -24,3 +28,50 @@ html
 
 body
   background-color color8
+
+/*
+  Global styles
+*/
+
+/*
+  Skeleton keyframes
+*/
+
+@keyframes skeleton {
+  0% {
+    background-position 0% 0
+    }
+  50%{
+    background-position 100% 0
+    }
+    100% {
+    background-position 0% 0
+    }
+}
+
+/*
+  Skeleton keyframes
+*/
+
+
+/*
+  Skeleton animations and styles
+*/
+
+.skeleton__container
+  background white
+  border 1px solid #e5e6e9
+  width 100%
+
+.skeleton
+  background linear-gradient(90deg, #eeeeee 8%, #dddddd 18%, #eeeeee 33%)
+  background-size 400% 100%
+  transform translateX(0)
+  animation skeleton 2s ease-in-out infinite
+
+.disabled
+  color color7
+
+/*
+  Skeleton animations and styles
+*/

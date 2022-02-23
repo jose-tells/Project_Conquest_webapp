@@ -28,7 +28,7 @@ const reducer = (state, action) => {
     case "GET_PROFILE":
       return {
         ...state,
-        profile: action.payload || [],
+        profile: action.payload || {},
       };
     case "GET_PHOTO":
       return {
@@ -62,6 +62,33 @@ const reducer = (state, action) => {
           action.payload.filter(
             (item) => !item.title.toLowerCase().includes("project conquest")
           ) || [],
+      };
+    case "ON_COMPLETE":
+      return {
+        ...state,
+        keyStates: {
+          loading: false,
+          complete: true,
+          error: false,
+        },
+      };
+    case "ON_LOADING":
+      return {
+        ...state,
+        keyStates: {
+          loading: true,
+          complete: false,
+          error: false,
+        },
+      };
+    case "ON_ERROR":
+      return {
+        ...state,
+        keyStates: {
+          loading: false,
+          complete: true,
+          error: true,
+        },
       };
     default:
       return state;

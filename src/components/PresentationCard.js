@@ -4,11 +4,9 @@ import RedirectLink from "./RedirectLink";
 // Styles
 import "../assets/styles/components/PresentationCard.styl";
 
-const PresentationCard = ({ photo, caption }) => (
+const PresentationCard = ({ children }) => (
   <div className="PresentationCard__container">
-    <div className="PresentationCard__image--container">
-      <img className="PresentationCard__image" src={photo} alt={caption} />
-    </div>
+    {children}
     <div className="PresentationCard__text--container">
       <h1 className="PresentationCard__text">
         HI I AM JOSE!
