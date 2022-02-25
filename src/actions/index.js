@@ -1,4 +1,4 @@
-import { app } from "../firebase/client";
+import { getMedia, loadCover } from "../firebase/client";
 
 export const findPhoto = (payload) => ({
   type: "FIND_PHOTO",
@@ -60,48 +60,61 @@ export const onError = (payload) => ({
   payload,
 });
 
-export const getAPIMedia = (collection, dispatchAction) => (dispatch) => {
-  app
-    .firestore()
-    .collection(collection)
-    .orderBy("position")
-    // .limit()
-    .get()
-    .then(({ docs }) => {
-      const docsList = docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      dispatch(dispatchAction(docsList));
+export const getAPIPhotos = (limit) => (dispatch) => {
+  getMedia("Photos", limit)
+    .then((docs) => {
+      dispatch(getPhotos(docs));
       dispatch(onComplete());
     })
-    .catch((err) => {
-      console.error(err);
-      dispatch(onError());
-    });
+    .catch(() => dispatch(onError()));
 };
 
-export const getSpecificMedia =
-  (collection, param, value, dispatchAction) => (dispatch) => {
-    app
-      .firestore()
-      .collection(collection)
-      .get()
-      .then(({ docs }) => {
-        const docsList = docs
-          .map((doc, index) => ({
-            ...doc.data(),
-            next: docs[index === docs.length - 1 ? 0 : index + 1]?.data(),
-            id: doc.id,
-          }))
-          .find((doc) =>
-            doc[param].toLowerCase().includes(value.toLowerCase())
-          );
-        dispatch(dispatchAction(docsList));
-        !docsList ? dispatch(onError()) : dispatch(onComplete());
-      })
-      .catch((err) => {
-        dispatch(onError());
-        console.error(err);
-      });
-  };
+export const getAPIIllustrations = (limit) => (dispatch) => {
+  getMedia("Illustrations", limit)
+    .then((docs) => {
+      dispatch(getIllustrations(docs));
+      dispatch(onComplete());
+    })
+    .catch(() => dispatch(onError()));
+};
+
+export const getAPIVideoCover = (collection) => (dispatch) => {
+  loadCover(collection, true)
+    .then((doc) => {
+      dispatch(getVideo(doc));
+    })
+    .catch(() => dispatch(onError()));
+};
+
+export const getAPIPhotoCover = (collection) => (dispatch) => {
+  loadCover(collection, true)
+    .then((docs) => {
+      dispatch(getPhoto(docs));
+      dispatch(onComplete());
+    })
+    .catch(() => dispatch(onError()));
+};
+
+export const getAPIProfiles = () => (dispatch) => {
+  getMedia("Profiles")
+    .then((docs) => {
+      dispatch(getProfiles(docs));
+      dispatch(onComplete());
+    })
+    .catch(() => dispatch(onError()));
+};
+
+export const getAPIProfile = (name) => (dispatch) => {
+  getMedia("Profiles")
+    .then((docs) => {
+      const normalized = docs
+        .map((doc, index) => ({
+          ...doc,
+          next: docs[index === docs.length - 1 ? 0 : index + 1],
+        }))
+        .find((doc) => doc.title.toLowerCase() === name.toLowerCase());
+      dispatch(getProfile(normalized));
+      !normalized ? dispatch(onError()) : dispatch(onComplete());
+    })
+    .catch(() => dispatch(onError()));
+};

@@ -10,23 +10,17 @@ import NotFound from "@containers/NotFound";
 import { ProfileSkeleton } from "../LoadingSkeletons/ProfileSkeleton";
 // Redux
 import { connect } from "react-redux";
-import { getSpecificMedia, getProfile, onLoading } from "../actions";
+import { getAPIProfile, onLoading } from "../actions";
 // Styles
 import "@styles/Profile.styl";
 import PropTypes from "prop-types";
 
-const Profile = ({
-  match,
-  getSpecificMedia,
-  profile,
-  keyStates,
-  onLoading,
-}) => {
+const Profile = ({ match, getAPIProfile, profile, keyStates, onLoading }) => {
   const { name } = match.params;
 
   React.useEffect(() => {
     onLoading();
-    getSpecificMedia("Profiles", "title", name, getProfile);
+    getAPIProfile(name);
   }, [name]);
 
   if (!keyStates.loading && keyStates.error) {
@@ -93,19 +87,19 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getSpecificMedia,
+  getAPIProfile,
   onLoading,
 };
 
 Profile.propTypes = {
-  getSpecificMedia: PropTypes.func,
+  getAPIProfile: PropTypes.func,
   profile: PropTypes.object,
   keyStates: PropTypes.object,
   onLoading: PropTypes.func,
 };
 
 Profile.defaultProps = {
-  getSpecificMedia: () => {},
+  getAPIProfile: () => {},
   profile: {},
   keyStates: {},
   onLoading: () => {},

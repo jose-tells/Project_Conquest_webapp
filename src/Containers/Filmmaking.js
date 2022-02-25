@@ -13,13 +13,13 @@ import SectionsWithItems from "@components/SectionsWithItems";
 import "@styles/Filmmaking.styl";
 // Redux
 import { connect } from "react-redux";
-import { getAPIMedia, getVideos } from "../actions";
+// import { getAPIMedia, getVideos } from "../actions";
 
 const Filmmaking = ({ videos, getAPIMedia, history }) => {
   const hasVideos = videos.length > 0;
 
   React.useEffect(() => {
-    getAPIMedia("Videos", getVideos);
+    // getAPIMedia("Videos", getVideos);
   }, []);
 
   const isOdd = (number) => {
@@ -74,7 +74,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIMedia,
+  // getAPIMedia,
 };
 
 Filmmaking.propTypes = {

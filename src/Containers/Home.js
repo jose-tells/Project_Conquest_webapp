@@ -5,14 +5,14 @@ import MenuNav from "@components/MenuNav";
 import Title from "@components/Title";
 import MenuSlideItem from "@components/MenuSlideItem";
 // React-redux
-import { getAPIMedia, getVideo } from "../actions";
+import { getAPIVideoCover } from "../actions";
 import { connect } from "react-redux";
 // Styles
 import "@styles/Home.styl";
 
-const Home = ({ getAPIMedia, player }) => {
+const Home = ({ getAPIVideoCover, player }) => {
   React.useEffect(() => {
-    getAPIMedia("Videos", getVideo);
+    getAPIVideoCover("Videos");
   }, []);
 
   const hasVideo = Object.values(player).length > 0;
@@ -43,16 +43,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIMedia,
+  getAPIVideoCover,
 };
 
 Home.propTypes = {
-  getAPIMedia: PropTypes.func,
+  getAPIVideoCover: PropTypes.func,
   player: PropTypes.object,
 };
 
 Home.defaultProps = {
-  getAPIMedia: () => {},
+  getAPIVideoCover: () => {},
   player: {},
 };
 

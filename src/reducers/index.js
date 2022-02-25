@@ -33,7 +33,7 @@ const reducer = (state, action) => {
     case "GET_PHOTO":
       return {
         ...state,
-        photo: action.payload || {},
+        photo: action.payload.find((item) => item.isCover) || {},
       };
     case "GET_PHOTOS":
       const photos = normalizer(action.payload);
@@ -50,10 +50,7 @@ const reducer = (state, action) => {
     case "GET_VIDEO":
       return {
         ...state,
-        player:
-          action.payload.find((item) =>
-            item.title.toLowerCase().includes("project conquest")
-          ) || [],
+        player: action.payload.find((item) => item.isCover) || {},
       };
     case "GET_VIDEOS":
       return {

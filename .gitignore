@@ -74,3 +74,9 @@ yarn-error.log
 
 # Build
 dist/
+
+# Firebase
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules

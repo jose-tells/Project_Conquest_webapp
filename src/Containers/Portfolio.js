@@ -14,20 +14,19 @@ import { PresentationCardSkeleton } from "../LoadingSkeletons/PresentationCardSk
 // Redux
 import { connect } from "react-redux";
 import {
-  getAPIMedia,
-  getPhotos,
-  getIllustrations,
-  getVideos,
-  getPhoto,
-  getSpecificMedia,
+  getAPIPhotos,
+  getAPIIllustrations,
+  // getVideos,
+  getAPIPhotoCover,
   onLoading,
 } from "../actions";
 // Styles
 import "../assets/styles/Portfolio.styl";
 
 const Portfolio = ({
-  getAPIMedia,
-  getSpecificMedia,
+  getAPIPhotoCover,
+  getAPIIllustrations,
+  getAPIPhotos,
   photos,
   illustrations,
   videos,
@@ -37,10 +36,9 @@ const Portfolio = ({
 }) => {
   React.useEffect(() => {
     onLoading();
-    getAPIMedia("Photos", getPhotos);
-    getAPIMedia("Illustrations", getIllustrations);
-    getAPIMedia("Videos", getVideos);
-    getSpecificMedia("Photos", "caption", "portfolio", getPhoto);
+    getAPIPhotos(2);
+    getAPIIllustrations(2);
+    getAPIPhotoCover("Photos");
   }, []);
 
   return (
@@ -58,7 +56,6 @@ const Portfolio = ({
             caption={photo.caption}
           />
         )}
-        {/* {keyStates.complete && keyStates.error && <h1>Error!</h1>} */}
       </PresentationCard>
 
       <div className="titlePortfolio__container">
@@ -138,14 +135,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIMedia,
-  getSpecificMedia,
+  getAPIPhotos,
+  getAPIIllustrations,
+  getAPIPhotoCover,
   onLoading,
 };
 
 Portfolio.propTypes = {
-  getAPIMedia: PropTypes.func,
-  getSpecificMedia: PropTypes.func,
+  getAPIPhotoCover: PropTypes.func,
+  getAPIPhotos: PropTypes.func,
+  getAPIIllustrations: PropTypes.func,
   photos: PropTypes.array,
   illustrations: PropTypes.array,
   videos: PropTypes.array,
@@ -155,8 +154,9 @@ Portfolio.propTypes = {
 };
 
 Portfolio.defaultProps = {
-  getAPIMedia: () => {},
-  getSpecificMedia: () => {},
+  getAPIPhotoCover: () => {},
+  getAPIPhotos: () => {},
+  getAPIIllustrations: () => {},
   photos: [],
   illustrations: [],
   videos: [],

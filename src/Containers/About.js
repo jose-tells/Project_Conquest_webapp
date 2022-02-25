@@ -5,15 +5,15 @@ import AboutFormat from "@components/AboutFormat";
 // Skeletons
 import { AboutFormatSkeleton } from "../LoadingSkeletons/AboutFormatSkeleton";
 // Redux
-import { getAPIMedia, getProfiles, onLoading } from "../actions";
+import { getAPIProfiles, onLoading } from "../actions";
 import { connect } from "react-redux";
 // Styles
 import "@styles/components/GridAbout.styl";
 
-const About = ({ profiles, getAPIMedia, keyStates, onLoading }) => {
+const About = ({ profiles, getAPIProfiles, keyStates, onLoading }) => {
   React.useEffect(() => {
     onLoading();
-    getAPIMedia("Profiles", getProfiles);
+    getAPIProfiles("Profiles");
   }, []);
 
   return (
@@ -41,20 +41,20 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIMedia,
+  getAPIProfiles,
   onLoading,
 };
 
 About.propTypes = {
   profiles: PropTypes.array,
-  getAPIMedia: PropTypes.func,
+  getAPIProfiles: PropTypes.func,
   keyStates: PropTypes.object,
   onLoading: PropTypes.func,
 };
 
 About.defaultProps = {
   profiles: [],
-  getAPIMedia: () => {},
+  getAPIProfiles: () => {},
   keyStates: {},
   onLoading: () => {},
 };

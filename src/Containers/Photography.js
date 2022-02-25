@@ -17,11 +17,11 @@ import { GridPhotosSkeleton } from "../LoadingSkeletons/GridPhotosSkeleton";
 import SectionsWithItems from "@components/SectionsWithItems";
 // React-redux
 import { connect } from "react-redux";
-import { getAPIMedia, getPhotos, onLoading } from "../actions";
+import { getAPIPhotos, onLoading } from "../actions";
 
 const Photography = ({
   photos,
-  getAPIMedia,
+  getAPIPhotos,
   history,
   keyStates,
   onLoading,
@@ -33,7 +33,7 @@ const Photography = ({
 
   React.useEffect(() => {
     onLoading();
-    getAPIMedia("Photos", getPhotos);
+    getAPIPhotos();
   }, []);
 
   const carouselStyles = () => {
@@ -114,20 +114,20 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getAPIMedia,
+  getAPIPhotos,
   onLoading,
 };
 
 Photography.propTypes = {
   photos: PropTypes.array,
-  getAPIMedia: PropTypes.func,
+  getAPIPhotos: PropTypes.func,
   keyStates: PropTypes.object,
   onLoading: PropTypes.func,
 };
 
 Photography.defaultProps = {
   photos: [],
-  getAPIMedia: () => {},
+  getAPIPhotos: () => {},
   keyStates: {},
   onLoading: () => {},
 };
