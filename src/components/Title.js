@@ -41,7 +41,7 @@ const Title = () => {
       <SocialMedia
         instagram="https://www.instagram.com/projectconquestt/"
         youtube="https://www.youtube.com/channel/UCipdJHJR0MaQhHu1YrGP3Ag"
-        // discord="https://discord.gg/uvc9JyWzJ7"
+        discord="https://discord.gg/89dtH59Wrv"
       />
     </div>
   );

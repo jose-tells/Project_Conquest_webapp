@@ -1,40 +1,72 @@
 @import "../Vars.styl"
 
 .footer
-    width 90%
-    height 7.7rem
-    margin auto
-    display grid
-    grid-template-columns repeat(2, 1fr)
-    justify-content center
-    align-items center
-    color color5
-    font-family fuente-principal
-    font-weight 300
+  width 90%
+  height 10rem
+  margin auto
+  display flex
+  gap 1.5rem
+  flex-direction column
+  justify-content center
+  align-items center
+  color color5
+  font-weight 300
 
-.footer__contact
-  text-align left
+.footer__header
+  width 100%
+  display flex
+  gap 1rem
+  justify-content center
+  align-items center
 
-.footer__contact p
+.footer__header--underline
+  width 20%
+  height 0.1rem
+  background-color color5
+
+.footer__header--title
+  color color4
+  text-align center
+  text-transform uppercase
+  font-size textFontSize
+  font-weight 300
   margin-bottom 0.3rem
 
-.footer__brand
-  text-align right
-
-.footer__brand p
-  margin-bottom 0.3rem
-
-.isDark
+.footer.isDark .footer__header--title
   color color8
 
-.footer__brand .footer__social-media
+.footer__brand
+  width 90%
   display flex
-  justify-content flex-end
+  gap 5rem
+  justify-content center
+  align-items flex-start
 
-.footer__brand .footer__social-media a
-  width auto
-  margin 0 0 0 0.6rem
+.footer__brand--links
+  font-weight 300
+  font-size 1.4rem
+  text-transform uppercase
+  text-decoration none
+  color color4
+
+.footer.isDark .footer__brand--links>a
+  color color8
+
+.footer__social--media
+  display flex
+  gap 2rem
+
+.footer__social--media>a
+  width fit-content
+  height fit-content
+  border 1px solid color8
+  border-radius 50%
+  font-size 1.5rem
+  font-weight 300
+  color color2
   border none
   background none
+  text-decoration none
 
-
+.footer.isDark .footer__social--media>a
+  color color2
