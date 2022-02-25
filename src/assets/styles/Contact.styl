@@ -1,5 +1,17 @@
 @import './Vars.styl'
 
+@keyframes textChange {
+  0% {
+    opacity 1
+    }
+  50% {
+    opacity 0
+  }
+  100% {
+    opacity 1
+  }
+}
+
 .gridContact
   height 100vh
   display grid
@@ -25,7 +37,7 @@
   margin-left 2rem
   padding-bottom 0.5rem
   height fit-content
-  grid-column 1/4
+  grid-column 1/5
   grid-row  7/8
   align-self flex-end
   justify-self flex-start
@@ -54,8 +66,15 @@
   font-size textFontSize
   color color5
 
+.gridContact__button--text.BEAUTIFUL
+  font-weight 500
+  color color2
+  animation textChange 3s linear
+
 .gridContact__button--icon
   font-size 1.5rem
   align-self center
   color color2
+  animation textChange 3s linear
+
 

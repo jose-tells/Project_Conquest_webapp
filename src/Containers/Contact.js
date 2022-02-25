@@ -12,8 +12,14 @@ import Modal from "../Modal";
 // Styles
 import "@styles/Contact.styl";
 
-const Contact = () => {
+const Contact = ({ location, history }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  const [message, setMessage] = React.useState("Successfully Submitted!");
+
+  const successfulHash = "BEAUTIFUL";
+
+  const isSuccessfullySubmitted = location.hash.slice(1) === successfulHash;
 
   const handleOpen = () => {
     dispatch({ type: onOpen });
@@ -31,6 +37,20 @@ const Contact = () => {
     }, 300);
   };
 
+  const redirect = () => {
+    history.push("/");
+  };
+
+  React.useEffect(() => {
+    const submission = setTimeout(() => {
+      setMessage("Go to Home");
+    }, 1500);
+
+    return () => {
+      clearTimeout(submission);
+    };
+  }, [message]);
+
   return (
     <>
       <section className="gridContact">
@@ -43,10 +63,14 @@ const Contact = () => {
           <button
             type="button"
             className="gridContact__button"
-            onClick={handleOpen}
+            onClick={!isSuccessfullySubmitted ? handleOpen : redirect}
             disabled={state.open}
           >
-            <span className="gridContact__button--text">Keep in touch!</span>
+            <span
+              className={`gridContact__button--text ${location.hash.slice(1)}`}
+            >
+              {isSuccessfullySubmitted ? `${message}` : "Keep in touch!"}
+            </span>
             <FontAwesomeIcon
               className="gridContact__button--icon"
               icon={faArrowRight}
@@ -61,7 +85,11 @@ const Contact = () => {
       </section>
       {state.show && (
         <Modal modalStyles={state.open}>
-          <ContactForm handleClose={handleClose} isClose={state.close} />
+          <ContactForm
+            successfulHash={successfulHash}
+            handleClose={handleClose}
+            isClose={state.close}
+          />
         </Modal>
       )}
     </>

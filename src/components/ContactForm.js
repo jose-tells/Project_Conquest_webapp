@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 // Styles
 import "@styles/components/ContactForm.styl";
 
-const ContactForm = ({ handleClose, isClose }) => {
+const ContactForm = ({ handleClose, isClose, successfulHash }) => {
   const [form, setForm] = React.useState({
     name: "",
     email: "",
@@ -19,20 +19,28 @@ const ContactForm = ({ handleClose, isClose }) => {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(form);
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-    });
+  const handleSubmit = () => {
     handleClose(false);
   };
 
   return (
     <div className="contactForm">
-      <form onSubmit={handleSubmit}>
+      <form
+        action={`https://formsubmit.co/${process.env.RANDOM_STRING_EMAIL}`}
+        method="POST"
+        onSubmit={handleSubmit}
+      >
+        <input
+          type="hidden"
+          name="_next"
+          value={`https://${process.env.MY_DOMAIN}#${successfulHash}`}
+        />
+        <input
+          type="hidden"
+          name="_subject"
+          value={`New beautiful message from ${form.name}`}
+        />
+        <input type="hidden" name="_template" value="table" />
         <button
           type="button"
           disabled={isClose}
