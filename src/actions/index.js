@@ -98,7 +98,7 @@ export const getSpecificMedia =
             doc[param].toLowerCase().includes(value.toLowerCase())
           );
         dispatch(dispatchAction(docsList));
-        dispatch(onComplete());
+        !docsList ? dispatch(onError()) : dispatch(onComplete());
       })
       .catch((err) => {
         dispatch(onError());

@@ -9,6 +9,7 @@ import Illustration from "@containers/Illustration";
 import About from "@containers/About";
 import Profile from "@containers/Profile";
 import Contact from "@containers/Contact";
+import NotFound from "../Containers/NotFound";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/about" component={About} />
         <Route exact path="/about/:name" component={Profile} />
         <Route exact path="/contact" component={Contact} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
