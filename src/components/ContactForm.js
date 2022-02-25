@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Styles
 import "@styles/components/ContactForm.styl";
 
@@ -84,6 +85,16 @@ const ContactForm = ({ handleClose, isClose }) => {
       </form>
     </div>
   );
+};
+
+ContactForm.propTypes = {
+  handleClose: PropTypes.func,
+  isClose: PropTypes.bool,
+};
+
+ContactForm.defaultProps = {
+  handleClose: () => {},
+  isClose: true,
 };
 
 export default ContactForm;

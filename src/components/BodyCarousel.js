@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Styles
 import "@styles/components/BodyCarousel.styl";
 
@@ -12,5 +13,16 @@ const BodyCarousel = ({ handleLeft, handleRight, children }) => (
     />
   </section>
 );
+
+BodyCarousel.propTypes = {
+  handleLeft: PropTypes.func,
+  handleRight: PropTypes.func,
+  children: PropTypes.element.isRequired,
+};
+
+BodyCarousel.defaultProps = {
+  handleLeft: () => {},
+  handleRight: () => {},
+};
 
 export default BodyCarousel;

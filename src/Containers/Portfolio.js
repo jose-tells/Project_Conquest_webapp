@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import MenuNav from "@components/MenuNav";
 import MenuSlideItem from "@components/MenuSlideItem";
@@ -140,6 +141,28 @@ const mapDispatchToProps = {
   getAPIMedia,
   getSpecificMedia,
   onLoading,
+};
+
+Portfolio.propTypes = {
+  getAPIMedia: PropTypes.func,
+  getSpecificMedia: PropTypes.func,
+  photos: PropTypes.array,
+  illustrations: PropTypes.array,
+  videos: PropTypes.array,
+  photo: PropTypes.object,
+  keyStates: PropTypes.object,
+  onLoading: PropTypes.func,
+};
+
+Portfolio.defaultProps = {
+  getAPIMedia: () => {},
+  getSpecificMedia: () => {},
+  photos: [],
+  illustrations: [],
+  videos: [],
+  photo: {},
+  keyStates: {},
+  onLoading: () => {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);

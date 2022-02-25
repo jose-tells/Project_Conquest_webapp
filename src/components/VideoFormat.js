@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useInViewEffect } from "react-hook-inview";
 
 const VideoFormat = ({ children, source, position }) => {
@@ -7,7 +8,7 @@ const VideoFormat = ({ children, source, position }) => {
   const [isVisible, setVisible] = React.useState(false);
 
   const ref = useInViewEffect(
-    ([entry], observer) => {
+    ([entry]) => {
       setVisible(entry.isIntersecting);
     },
     { threshold: 1 }
@@ -37,6 +38,16 @@ const VideoFormat = ({ children, source, position }) => {
       {children}
     </div>
   );
+};
+VideoFormat.propTypes = {
+  children: PropTypes.elementType.isRequired,
+  source: PropTypes.string,
+  position: PropTypes.string,
+};
+
+VideoFormat.defaultProps = {
+  source: "",
+  position: "left",
 };
 
 export default VideoFormat;

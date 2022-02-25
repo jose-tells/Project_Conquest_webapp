@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Styles
 import "@styles/components/LinkCard.styl";
 
@@ -32,6 +33,19 @@ const LinkCard = ({ cardTitle, children, renderImagesReel, media }) => {
       {children}
     </div>
   );
+};
+
+LinkCard.propTypes = {
+  cardTitle: PropTypes.string,
+  children: PropTypes.element.isRequired,
+  renderImagesReel: PropTypes.func,
+  media: PropTypes.array,
+};
+
+LinkCard.defaultProps = {
+  cardTitle: "Photography",
+  renderImagesReel: () => {},
+  media: [],
 };
 
 export default LinkCard;

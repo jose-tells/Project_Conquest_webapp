@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import RedirectLink from "./RedirectLink";
 // Styles
@@ -25,5 +26,9 @@ const PresentationCard = ({ children }) => (
     </div>
   </div>
 );
+
+PresentationCard.propTypes = {
+  children: PropTypes.array.isRequired,
+};
 
 export default PresentationCard;

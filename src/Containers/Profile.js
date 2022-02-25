@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { getSpecificMedia, getProfile, onLoading } from "../actions";
 // Styles
 import "@styles/Profile.styl";
+import PropTypes from "prop-types";
 
 const Profile = ({
   match,
@@ -89,6 +90,20 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getSpecificMedia,
   onLoading,
+};
+
+Profile.propTypes = {
+  getSpecificMedia: PropTypes.func,
+  profile: PropTypes.object,
+  keyStates: PropTypes.object,
+  onLoading: PropTypes.func,
+};
+
+Profile.defaultProps = {
+  getSpecificMedia: () => {},
+  profile: {},
+  keyStates: {},
+  onLoading: () => {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
