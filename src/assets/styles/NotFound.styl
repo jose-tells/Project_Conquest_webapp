@@ -1,0 +1,78 @@
+@import "./Vars"
+
+.NotFound__container
+  display flex
+  flex-direction column
+  align-items center
+
+.NotFound__message--header
+  position absolute
+  margin 7rem auto
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  gap 3rem
+  z-index 10
+
+.NotFound__error--container
+  height fit-content
+  display flex
+  flex-direction column
+  align-items center
+
+.NotFound__error
+  font-size 9.6rem
+  font-weight 500
+  color color5
+
+.NotFound__error--underline
+  width 80%
+  height 0.2rem
+  background-color color5
+
+.NotFound__message
+  font-size 1.8rem
+  font-weight 300
+  color color8
+
+.NotFound__redirectButton--container
+  width 15.8rem
+  height 3.9rem
+  background color2
+  border none
+  outline none
+
+.NotFound__redirectButton
+  font-family fuente-principal
+  font-size textFontSize
+  font-weight 300
+  text-decoration none
+  color color8
+
+
+/*
+  Background image
+*/
+
+.NotFound__image--container
+  position relative
+  width 100vw
+  height 100vh
+
+.NotFound__image
+  width 100%
+  height 100%
+  object-fit cover
+
+.NotFound__image--credits
+  position absolute
+  bottom 0
+  right 5px
+  font-weight 300
+  font-size 1rem
+  color #A47D59
+
+.NotFound__image--credits>a
+  text-decoration none
+  color inherit

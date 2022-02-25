@@ -5,6 +5,7 @@ import ProfileDescription from "@components/ProfileDescription";
 import SocialMedia from "@components/SocialMedia";
 import ProfileMenuNav from "@components/ProfileMenuNav";
 import ProfileMenuNavItem from "@components/ProfileMenuNavItem";
+import NotFound from "@containers/NotFound";
 // Skeletons
 import { ProfileSkeleton } from "../LoadingSkeletons/ProfileSkeleton";
 // Redux
@@ -27,6 +28,10 @@ const Profile = ({
     onLoading();
     getSpecificMedia("Profiles", "title", name, getProfile);
   }, [name]);
+
+  if (!keyStates.loading && keyStates.error) {
+    return <NotFound />;
+  }
 
   return (
     <div className="profile__container">
