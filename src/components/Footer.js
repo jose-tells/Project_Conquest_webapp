@@ -6,10 +6,11 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import PropTypes from "prop-types";
-// Styles
-import "@styles/components/Footer.styl";
 // Classnames
 import classNames from "classnames";
+// Styles
+import "@styles/components/Footer.styl";
+import { Link } from "react-router-dom";
 
 const Footer = ({ isDark }) => {
   const FooterStyles = classNames("footer", {
@@ -18,23 +19,23 @@ const Footer = ({ isDark }) => {
 
   return (
     <footer className={FooterStyles}>
-      <div className="footer__contact">
-        <p>josemarquinez28@gmail.com</p>
-        <p>(+507) 63820564</p>
+      <div className="footer__header">
+        <div className="footer__header--underline" />
+        <h1 className="footer__header--title">Project Conquest</h1>
+        <div className="footer__header--underline" />
       </div>
       <div className="footer__brand">
-        <p>Project Conquest</p>
-        <div className="footer__social-media">
+        <section className="footer__social--media">
           <a href="http://www.instagram.com/projectconquestt">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="/">
+          <a href="https://discord.gg/89dtH59Wrv">
             <FontAwesomeIcon icon={faDiscord} />
           </a>
           <a href="https://www.youtube.com/channel/UCipdJHJR0MaQhHu1YrGP3Ag">
             <FontAwesomeIcon icon={faYoutube} />
           </a>
-        </div>
+        </section>
       </div>
     </footer>
   );
