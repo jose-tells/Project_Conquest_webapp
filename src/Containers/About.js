@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import AboutFormat from "@components/AboutFormat";
 // Skeletons
@@ -42,6 +43,20 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getAPIMedia,
   onLoading,
+};
+
+About.propTypes = {
+  profiles: PropTypes.array,
+  getAPIMedia: PropTypes.func,
+  keyStates: PropTypes.object,
+  onLoading: PropTypes.func,
+};
+
+About.defaultProps = {
+  profiles: [],
+  getAPIMedia: () => {},
+  keyStates: {},
+  onLoading: () => {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(About);

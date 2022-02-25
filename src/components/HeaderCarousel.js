@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // FontAwesome
 import { faInfo, faXmark, faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,5 +22,15 @@ const HeaderReel = ({ itemId, setModalOpen }) => (
     </div>
   </header>
 );
+
+HeaderReel.propTypes = {
+  itemId: PropTypes.number,
+  setModalOpen: PropTypes.func,
+};
+
+HeaderReel.defaultProps = {
+  itemId: 1,
+  setModalOpen: () => {},
+};
 
 export default HeaderReel;

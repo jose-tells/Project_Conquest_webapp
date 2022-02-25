@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// COMPONENTS
+import PropTypes from "prop-types";
 // Classnames
 import classNames from "classnames";
 // Styles
@@ -42,6 +42,15 @@ const MenuNav = ({ isDark, children }) => {
       </div>
     </nav>
   );
+};
+
+MenuNav.propTypes = {
+  isDark: PropTypes.bool,
+  children: PropTypes.array.isRequired,
+};
+
+MenuNav.defaultProps = {
+  isDark: false,
 };
 
 export default MenuNav;

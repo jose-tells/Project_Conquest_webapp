@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 // Styles
 import "@styles/components/ProfileDescription.styl";
 
@@ -13,5 +13,16 @@ const ProfileDescription = ({ name, description, children }) => (
     {children}
   </div>
 );
+
+ProfileDescription.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+};
+
+ProfileDescription.defaultProps = {
+  name: "Jose",
+  description:
+    "Oh, you came across this default message! So, let's make it not boring, say something fun!",
+};
 
 export default ProfileDescription;

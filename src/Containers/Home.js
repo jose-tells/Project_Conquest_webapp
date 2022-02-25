@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import MenuNav from "@components/MenuNav";
 import Title from "@components/Title";
@@ -43,6 +44,16 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getAPIMedia,
+};
+
+Home.propTypes = {
+  getAPIMedia: PropTypes.func,
+  player: PropTypes.object,
+};
+
+Home.defaultProps = {
+  getAPIMedia: () => {},
+  player: {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

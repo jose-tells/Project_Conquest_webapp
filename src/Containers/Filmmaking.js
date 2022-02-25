@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import MenuNav from "@components/MenuNav";
 import MenuSlideItem from "@components/MenuSlideItem";
 import GridVideo from "@components/GridVideo";
 import Footer from "@components/Footer";
 import VideoFormat from "@components/VideoFormat";
-import VideoDescription from "@components/VideoDescription";
+// import VideoDescription from "@components/VideoDescription";
 // HOCs
 import SectionsWithItems from "@components/SectionsWithItems";
 // Styles
@@ -74,6 +75,16 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getAPIMedia,
+};
+
+Filmmaking.propTypes = {
+  videos: PropTypes.array,
+  getAPIMedia: PropTypes.func,
+};
+
+Filmmaking.defaultProps = {
+  videos: [],
+  getAPIMedia: () => {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filmmaking);

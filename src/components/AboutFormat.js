@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 // Styles
 import "@styles/components/AboutFormat.styl";
 
@@ -21,5 +22,19 @@ const AboutFormat = ({ media, link, specialty, isLastItem }) => (
     </div>
   </Link>
 );
+
+AboutFormat.propTypes = {
+  media: PropTypes.string,
+  link: PropTypes.string,
+  specialty: PropTypes.array,
+  isLastItem: PropTypes.bool,
+};
+
+AboutFormat.defaultProps = {
+  media: "",
+  link: "",
+  specialty: ["Photography"],
+  isLastItem: false,
+};
 
 export default AboutFormat;

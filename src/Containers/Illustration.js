@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import MenuNav from "@components/MenuNav";
 import MenuSlideItem from "@components/MenuSlideItem";
@@ -116,6 +117,20 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getAPIMedia,
   onLoading,
+};
+
+Illustration.propTypes = {
+  illustrations: PropTypes.array,
+  getAPIMedia: PropTypes.func,
+  keyStates: PropTypes.object,
+  onLoading: PropTypes.func,
+};
+
+Illustration.defaultProps = {
+  illustrations: [],
+  getAPIMedia: () => {},
+  keyStates: {},
+  onLoading: () => {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Illustration);

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Components
 import MenuNav from "@components/MenuNav";
 import GridFormat from "@components/GridFormat";
@@ -115,6 +116,20 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getAPIMedia,
   onLoading,
+};
+
+Photography.propTypes = {
+  photos: PropTypes.array,
+  getAPIMedia: PropTypes.func,
+  keyStates: PropTypes.object,
+  onLoading: PropTypes.func,
+};
+
+Photography.defaultProps = {
+  photos: [],
+  getAPIMedia: () => {},
+  keyStates: {},
+  onLoading: () => {},
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Photography);

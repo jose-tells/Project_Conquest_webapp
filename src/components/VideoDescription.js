@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
+import PropTypes from "prop-types";
 
 const VideoDescription = ({ title, caption, author, position }) => (
   <div className={`description ${position}`}>
@@ -8,5 +8,19 @@ const VideoDescription = ({ title, caption, author, position }) => (
     <p className="description--author">{author}</p>
   </div>
 );
+
+VideoDescription.propTypes = {
+  title: PropTypes.string,
+  caption: PropTypes.string,
+  author: PropTypes.string,
+  position: PropTypes.string,
+};
+
+VideoDescription.defaultProps = {
+  title: "Hi!",
+  caption: "Videos will be arriving soon!",
+  author: "Jose Marquinez",
+  position: "left",
+};
 
 export default VideoDescription;

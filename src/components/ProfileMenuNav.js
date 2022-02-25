@@ -1,6 +1,7 @@
 import React from "react";
 // Styles
 import "@styles/components/ProfileMenuNav.styl";
+import PropTypes from "prop-types";
 
 const ProfileMenuNav = ({ children }) => {
   const [isOpen, setOpen] = React.useState(false);
@@ -21,6 +22,10 @@ const ProfileMenuNav = ({ children }) => {
       </button>
     </nav>
   );
+};
+
+ProfileMenuNav.propTypes = {
+  children: PropTypes.array.isRequired,
 };
 
 export default ProfileMenuNav;

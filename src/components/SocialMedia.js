@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -29,4 +30,19 @@ const SocialMedia = ({ instagram, youtube, discord, twitter }) => (
     )}
   </div>
 );
+
+SocialMedia.propTypes = {
+  instagram: PropTypes.string,
+  youtube: PropTypes.string,
+  discord: PropTypes.string,
+  twitter: PropTypes.string,
+};
+
+SocialMedia.defaultProps = {
+  instagram: "#",
+  youtube: "#",
+  discord: "#",
+  twitter: "#",
+};
+
 export default SocialMedia;
