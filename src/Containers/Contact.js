@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faHouse } from "@fortawesome/free-solid-svg-icons";
 // Modal
 import Modal from "../Modal";
-// Styles
+// Assets
+import contactBackground from "../assets/img/Solitude shared.jpg";
 import "@styles/Contact.styl";
 
 const Contact = ({ location, history }) => {
@@ -54,6 +55,13 @@ const Contact = ({ location, history }) => {
   return (
     <>
       <section className="gridContact">
+        <div className="gridContact__background--container">
+          <img
+            className="gridContact__background"
+            src={contactBackground}
+            alt="Solitude contact"
+          />
+        </div>
         <Link to="/" className="grid__home--container">
           <FontAwesomeIcon icon={faHouse} className="grid__home--icon" />
         </Link>
