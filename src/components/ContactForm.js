@@ -33,7 +33,7 @@ const ContactForm = ({ handleClose, isClose, successfulHash }) => {
         <input
           type="hidden"
           name="_next"
-          value={`https://${process.env.MY_DOMAIN}#${successfulHash}`}
+          value={`${process.env.MY_DOMAIN}contact#${successfulHash}`}
         />
         <input
           type="hidden"
