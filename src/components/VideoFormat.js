@@ -6,7 +6,7 @@ import "@styles/components/VideoFormat.styl";
 const VideoFormat = ({ children, source, position }) => {
   const videoRef = React.useRef(null);
 
-  const [isPlay, setPlay] = React.useState(false);
+  const [isPlay, setPlay] = React.useState(true);
 
   const toggleVideo = () => {
     if (!isPlay) {
