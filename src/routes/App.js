@@ -9,7 +9,7 @@ import Illustration from "@containers/Illustration";
 import About from "@containers/About";
 import Profile from "@containers/Profile";
 import Contact from "@containers/Contact";
-import NotFound from "../Containers/NotFound";
+import NotFound from "@containers/NotFound";
 
 function App() {
   return (

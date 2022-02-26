@@ -11,17 +11,32 @@ import { connect } from "react-redux";
 import "@styles/Home.styl";
 
 const Home = ({ getAPIVideoCover, player }) => {
-  React.useEffect(() => {
-    getAPIVideoCover("Videos");
-  }, []);
+  const videoRef = React.useRef(null);
 
   const hasVideo = Object.values(player).length > 0;
+
+  React.useEffect(() => {
+    getAPIVideoCover(
+      process.env.API_URL_V,
+      process.env.API_KEY_V,
+      process.env.VIDEO_COVER_ID
+    );
+  }, [hasVideo]);
 
   return (
     <>
       {hasVideo && (
         <div className="reel__container">
-          <video className="reel" autoPlay loop muted src={player.fileUrl} />
+          <video
+            autoPlay
+            ref={videoRef}
+            className="reel"
+            loop
+            muted
+            type="video/mp4"
+            playsInline
+            src={player.media}
+          />
         </div>
       )}
       <MenuNav isDark>

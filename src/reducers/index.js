@@ -48,17 +48,25 @@ const reducer = (state, action) => {
         illustrations,
       };
     case "GET_VIDEO":
+      const player =
+        {
+          id: action.payload.id,
+          dimensions: {
+            width: action.payload.width,
+            height: action.payload.height,
+          },
+          media: action.payload.video_files.find(
+            (video) => video.width === 1920
+          )?.link,
+        } || {};
       return {
         ...state,
-        player: action.payload.find((item) => item.isCover) || {},
+        player,
       };
     case "GET_VIDEOS":
       return {
         ...state,
-        videos:
-          action.payload.filter(
-            (item) => !item.title.toLowerCase().includes("project conquest")
-          ) || [],
+        videos: action.payload || [],
       };
     case "ON_COMPLETE":
       return {
