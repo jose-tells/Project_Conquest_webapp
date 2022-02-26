@@ -15,7 +15,15 @@ import {
   // onSnapshot,
 } from "firebase/firestore";
 
-const app = initializeApp(JSON.parse(process.env.FIREBASE_CREDENTIALS));
+const app = initializeApp({
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_API_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_API_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_API_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_API_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_API_APP_ID,
+  measurementId: process.env.FIREBASE_API_MEASSUREMENT_ID,
+});
 
 const db = getFirestore(app);
 
