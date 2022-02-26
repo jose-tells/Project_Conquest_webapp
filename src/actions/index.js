@@ -1,4 +1,5 @@
 import { getMedia, loadCover } from "../firebase/client";
+import { getPexelsCollection } from "../pexels";
 
 export const findPhoto = (payload) => ({
   type: "FIND_PHOTO",
@@ -32,6 +33,11 @@ export const getVideo = (payload) => ({
 
 export const getVideos = (payload) => ({
   type: "GET_VIDEOS",
+  payload,
+});
+
+export const getVideosThumbnails = (payload) => ({
+  type: "GET_VIDEOS_THUMBNAILS",
   payload,
 });
 
@@ -94,6 +100,20 @@ export const getAPIVideoCover =
 export const getAPIVideos = (limit) => (dispatch) => {
   getMedia("Videos", limit)
     .then((videos) => dispatch(getVideos(videos)))
+    .then(() => dispatch(onComplete()))
+    .catch(console.error);
+};
+
+export const getAPIVideosThumbnails = () => (dispatch) => {
+  getPexelsCollection()
+    .then(({ media }) => {
+      const videosThumbnails = media.map((img) => ({
+        id: img.id,
+        link: img.image,
+        dimensions: { width: img.width, height: img.height },
+      }));
+      dispatch(getVideosThumbnails(videosThumbnails));
+    })
     .then(() => dispatch(onComplete()))
     .catch(console.error);
 };

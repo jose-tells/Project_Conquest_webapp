@@ -16,7 +16,7 @@ import { connect } from "react-redux";
 import {
   getAPIPhotos,
   getAPIIllustrations,
-  getAPIVideos,
+  getAPIVideosThumbnails,
   getAPIPhotoCover,
   onLoading,
 } from "../actions";
@@ -27,10 +27,10 @@ const Portfolio = ({
   getAPIPhotoCover,
   getAPIIllustrations,
   getAPIPhotos,
-  getAPIVideos,
+  getAPIVideosThumbnails,
   photos,
   illustrations,
-  videos,
+  videosThumbnails,
   photo,
   keyStates,
   onLoading,
@@ -39,7 +39,7 @@ const Portfolio = ({
     onLoading();
     getAPIPhotos(2);
     getAPIIllustrations(2);
-    getAPIVideos(2);
+    getAPIVideosThumbnails();
     getAPIPhotoCover("Photos");
   }, []);
 
@@ -105,14 +105,13 @@ const Portfolio = ({
             </LinkCard>
             <LinkCard
               cardTitle="filmmaking"
-              media={videos}
+              media={videosThumbnails}
               renderImagesReel={(media) => (
-                <video
+                <img
                   key={media.id}
                   className="linkCard__image"
-                  src={media.fileUrl}
-                  alt={media.description}
-                  muted
+                  src={media.link}
+                  alt=""
                 />
               )}
             >
@@ -132,14 +131,14 @@ const mapStateToProps = (state) => ({
   photo: state.photo,
   photos: state.photos,
   illustrations: state.illustrations,
-  videos: state.videos,
+  videosThumbnails: state.videosThumbnails,
   keyStates: state.keyStates,
 });
 
 const mapDispatchToProps = {
   getAPIPhotos,
   getAPIIllustrations,
-  getAPIVideos,
+  getAPIVideosThumbnails,
   getAPIPhotoCover,
   onLoading,
 };
@@ -148,10 +147,10 @@ Portfolio.propTypes = {
   getAPIPhotoCover: PropTypes.func,
   getAPIPhotos: PropTypes.func,
   getAPIIllustrations: PropTypes.func,
-  getAPIVideos: PropTypes.func,
+  getAPIVideosThumbnails: PropTypes.func,
   photos: PropTypes.array,
   illustrations: PropTypes.array,
-  videos: PropTypes.array,
+  videosThumbnails: PropTypes.array,
   photo: PropTypes.object,
   keyStates: PropTypes.object,
   onLoading: PropTypes.func,
@@ -161,10 +160,10 @@ Portfolio.defaultProps = {
   getAPIPhotoCover: () => {},
   getAPIPhotos: () => {},
   getAPIIllustrations: () => {},
-  getAPIVideos: () => {},
+  getAPIVideosThumbnails: () => {},
   photos: [],
   illustrations: [],
-  videos: [],
+  videosThumbnails: [],
   photo: {},
   keyStates: {},
   onLoading: () => {},

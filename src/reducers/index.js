@@ -68,6 +68,11 @@ const reducer = (state, action) => {
         ...state,
         videos: action.payload || [],
       };
+    case "GET_VIDEOS_THUMBNAILS":
+      return {
+        ...state,
+        videosThumbnails: action.payload || [],
+      };
     case "ON_COMPLETE":
       return {
         ...state,
