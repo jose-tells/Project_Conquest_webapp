@@ -6,20 +6,20 @@ import MenuSlideItem from "@components/MenuSlideItem";
 import GridVideo from "@components/GridVideo";
 import Footer from "@components/Footer";
 import VideoFormat from "@components/VideoFormat";
-// import VideoDescription from "@components/VideoDescription";
+import VideoDescription from "@components/VideoDescription";
 // HOCs
 import SectionsWithItems from "@components/SectionsWithItems";
-// Styles
-import "@styles/Filmmaking.styl";
 // Redux
 import { connect } from "react-redux";
-// import { getAPIMedia, getVideos } from "../actions";
+import { getAPIVideos } from "../actions";
+// Styles
+import "@styles/Filmmaking.styl";
 
-const Filmmaking = ({ videos, getAPIMedia, history }) => {
+const Filmmaking = ({ videos, getAPIVideos, history, keyStates }) => {
   const hasVideos = videos.length > 0;
 
   React.useEffect(() => {
-    // getAPIMedia("Videos", getVideos);
+    getAPIVideos();
   }, []);
 
   const isOdd = (number) => {
@@ -42,11 +42,7 @@ const Filmmaking = ({ videos, getAPIMedia, history }) => {
       />
       {hasVideos && (
         <GridVideo>
-          <VideoFormat
-            source={videos[0].fileUrl}
-            // position={isOdd(index + 1)}
-          />
-          {/* {videos.map((item, index) => (
+          {videos.map((item, index) => (
             <VideoFormat
               key={item.id}
               source={item.fileUrl}
@@ -59,7 +55,7 @@ const Filmmaking = ({ videos, getAPIMedia, history }) => {
                 position={isOdd(index + 1)}
               />
             </VideoFormat>
-          ))} */}
+          ))}
         </GridVideo>
       )}
       <Footer isDark />
@@ -71,20 +67,27 @@ const items = ["home", "portfolio", "about", "contact"];
 
 const mapStateToProps = (state) => ({
   videos: state.videos,
+  keyStates: state.keyStates,
 });
 
 const mapDispatchToProps = {
-  // getAPIMedia,
+  getAPIVideos,
 };
 
 Filmmaking.propTypes = {
   videos: PropTypes.array,
-  getAPIMedia: PropTypes.func,
+  getAPIVideos: PropTypes.func,
+  keyStates: PropTypes.object,
 };
 
 Filmmaking.defaultProps = {
   videos: [],
-  getAPIMedia: () => {},
+  getAPIVideos: () => {},
+  keyStates: {
+    complete: false,
+    loading: true,
+    error: false,
+  },
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filmmaking);

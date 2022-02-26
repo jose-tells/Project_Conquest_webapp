@@ -78,12 +78,24 @@ export const getAPIIllustrations = (limit) => (dispatch) => {
     .catch(() => dispatch(onError()));
 };
 
-export const getAPIVideoCover = (collection) => (dispatch) => {
-  loadCover(collection, true)
-    .then((doc) => {
-      dispatch(getVideo(doc));
+export const getAPIVideoCover =
+  (API_URL, API_KEY, VIDEO_COVER_ID) => (dispatch) => {
+    fetch(`${API_URL}/videos/videos/${VIDEO_COVER_ID}`, {
+      headers: { Authorization: API_KEY },
     })
-    .catch(() => dispatch(onError()));
+      .then((data) => data.json())
+      .then((result) => {
+        dispatch(getVideo(result));
+        dispatch(onComplete());
+      })
+      .catch(() => dispatch(onError()));
+  };
+
+export const getAPIVideos = (limit) => (dispatch) => {
+  getMedia("Videos", limit)
+    .then((videos) => dispatch(getVideos(videos)))
+    .then(() => dispatch(onComplete()))
+    .catch(console.error);
 };
 
 export const getAPIPhotoCover = (collection) => (dispatch) => {

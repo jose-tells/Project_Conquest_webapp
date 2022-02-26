@@ -78,7 +78,11 @@ const Photography = ({
       </GridPhotos>
       {modalOpen && (
         <CarouselModal>
-          <HeaderCarousel itemId={mediaIndex + 1} setModalOpen={setModalOpen} />
+          <HeaderCarousel
+            mediaLength={photos.length}
+            itemId={mediaIndex + 1}
+            setModalOpen={setModalOpen}
+          />
           <BodyCarousel handleRight={handleRight} handleLeft={handleLeft}>
             {hasPhotos && (
               <img

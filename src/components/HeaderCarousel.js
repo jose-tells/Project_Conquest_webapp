@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Styles
 import "@styles/components/HeaderReel.styl";
 
-const HeaderReel = ({ itemId, setModalOpen }) => (
+const HeaderReel = ({ itemId, setModalOpen, mediaLength }) => (
   <header className="sliderReel__header">
-    <h1 className="sliderReel__header--number">{itemId}/20</h1>
+    <h1 className="sliderReel__header--number">
+      {itemId}/{mediaLength}
+    </h1>
     <div className="sliderReel__header--buttons">
       <button type="button">
         <FontAwesomeIcon icon={faInfo} />

@@ -12,12 +12,11 @@ const CarouselShowcase = ({ children, carouselStyles }) => (
 );
 
 CarouselShowcase.propTypes = {
-  children: PropTypes.elementType.isRequired,
-  carouselStyles: PropTypes.object,
+  carouselStyles: PropTypes.func,
 };
 
 CarouselShowcase.defaultProps = {
-  carouselStyles: { transform: "translateX(50%)" },
+  carouselStyles: () => ({ transform: "translateX(50%)" }),
 };
 
 export default CarouselShowcase;

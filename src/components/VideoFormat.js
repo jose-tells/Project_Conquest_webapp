@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useInViewEffect } from "react-hook-inview";
+// Styles
+import "@styles/components/VideoFormat.styl";
 
 const VideoFormat = ({ children, source, position }) => {
   const videoRef = React.useRef(null);
@@ -14,8 +16,9 @@ const VideoFormat = ({ children, source, position }) => {
     { threshold: 1 }
   );
 
-  const toggleVideo = () => {
-    isVisible ? videoRef.current.play() : videoRef.current.pause();
+  const toggleVideo = (event) => {
+    isVisible && videoRef.current.play();
+    !isVisible && !!event && videoRef.current.pause();
   };
 
   React.useEffect(() => {
@@ -26,13 +29,14 @@ const VideoFormat = ({ children, source, position }) => {
     <div ref={ref} className={`video__container ${position}`}>
       <div>
         <video
+          onPlay={toggleVideo}
           className="video__item"
           ref={videoRef}
           muted
           loop
           src={source}
-          controls
           type="video/mp4"
+          playsInline
         />
       </div>
       {children}
@@ -40,7 +44,6 @@ const VideoFormat = ({ children, source, position }) => {
   );
 };
 VideoFormat.propTypes = {
-  children: PropTypes.elementType.isRequired,
   source: PropTypes.string,
   position: PropTypes.string,
 };

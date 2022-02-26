@@ -16,7 +16,7 @@ import { connect } from "react-redux";
 import {
   getAPIPhotos,
   getAPIIllustrations,
-  // getVideos,
+  getAPIVideos,
   getAPIPhotoCover,
   onLoading,
 } from "../actions";
@@ -27,6 +27,7 @@ const Portfolio = ({
   getAPIPhotoCover,
   getAPIIllustrations,
   getAPIPhotos,
+  getAPIVideos,
   photos,
   illustrations,
   videos,
@@ -38,6 +39,7 @@ const Portfolio = ({
     onLoading();
     getAPIPhotos(2);
     getAPIIllustrations(2);
+    getAPIVideos(2);
     getAPIPhotoCover("Photos");
   }, []);
 
@@ -108,7 +110,7 @@ const Portfolio = ({
                 <video
                   key={media.id}
                   className="linkCard__image"
-                  src={media.media}
+                  src={media.fileUrl}
                   alt={media.description}
                   muted
                 />
@@ -137,6 +139,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getAPIPhotos,
   getAPIIllustrations,
+  getAPIVideos,
   getAPIPhotoCover,
   onLoading,
 };
@@ -145,6 +148,7 @@ Portfolio.propTypes = {
   getAPIPhotoCover: PropTypes.func,
   getAPIPhotos: PropTypes.func,
   getAPIIllustrations: PropTypes.func,
+  getAPIVideos: PropTypes.func,
   photos: PropTypes.array,
   illustrations: PropTypes.array,
   videos: PropTypes.array,
@@ -157,6 +161,7 @@ Portfolio.defaultProps = {
   getAPIPhotoCover: () => {},
   getAPIPhotos: () => {},
   getAPIIllustrations: () => {},
+  getAPIVideos: () => {},
   photos: [],
   illustrations: [],
   videos: [],

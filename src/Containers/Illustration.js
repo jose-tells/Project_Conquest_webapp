@@ -33,7 +33,7 @@ const Illustration = ({
 
   React.useEffect(() => {
     onLoading();
-    getAPIIllustrations(2);
+    getAPIIllustrations();
   }, []);
 
   const carouselStyles = () => {
@@ -79,7 +79,11 @@ const Illustration = ({
       </GridPhotos>
       {modalOpen && (
         <CarouselModal>
-          <HeaderCarousel itemId={mediaIndex + 1} setModalOpen={setModalOpen} />
+          <HeaderCarousel
+            mediaLength={illustrations.length}
+            itemId={mediaIndex + 1}
+            setModalOpen={setModalOpen}
+          />
           <BodyCarousel handleRight={handleRight} handleLeft={handleLeft}>
             {hasIllustrations && (
               <img

@@ -1,0 +1,36 @@
+@import "../Vars.styl"
+@import "../Mixins.styl"
+
+.description.left
+  display flex
+  flex-direction column
+  align-items flex-end
+  align-self center
+  text-align right
+  z-index 10
+  transform translate(4rem, -3rem)
+  videoDescription()
+  .description--title
+    text-transform uppercase
+    titleVideoDescription()
+  .description--caption
+    captionVideoDescription()
+  .description--author
+    authorVideoDescription()
+
+.description.right
+  display flex
+  flex-direction column
+  align-items flex-start
+  align-self center
+  text-align left
+  z-index 10
+  transform translate(-4rem, -3rem)
+  videoDescription()
+  .description--title
+    text-transform uppercase
+    titleVideoDescription()
+  .description--caption
+    captionVideoDescription()
+  .description--author
+    authorVideoDescription()

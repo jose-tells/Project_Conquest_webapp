@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+// Styles
+import "@styles/components/VideoDescription.styl";
 
 const VideoDescription = ({ title, caption, author, position }) => (
   <div className={`description ${position}`}>

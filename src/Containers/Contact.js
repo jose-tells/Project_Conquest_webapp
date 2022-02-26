@@ -16,8 +16,6 @@ import "@styles/Contact.styl";
 const Contact = ({ location, history }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
-  const [message, setMessage] = React.useState("Successfully Submitted!");
-
   const successfulHash = "BEAUTIFUL";
 
   const isSuccessfullySubmitted = location.hash.slice(1) === successfulHash;
@@ -41,16 +39,6 @@ const Contact = ({ location, history }) => {
   const redirect = () => {
     history.push("/");
   };
-
-  React.useEffect(() => {
-    const submission = setTimeout(() => {
-      setMessage("Go to Home");
-    }, 1500);
-
-    return () => {
-      clearTimeout(submission);
-    };
-  }, [message]);
 
   return (
     <>
@@ -77,12 +65,29 @@ const Contact = ({ location, history }) => {
             <span
               className={`gridContact__button--text ${location.hash.slice(1)}`}
             >
-              {isSuccessfullySubmitted ? `${message}` : "Keep in touch!"}
+              {isSuccessfullySubmitted ? (
+                <>
+                  Successfully Submitted!{" "}
+                  <p
+                    style={{
+                      fontWeight: 300,
+                      fontSize: "1.2rem",
+                      textAlign: "left",
+                    }}
+                  >
+                    thanks for your message!
+                  </p>
+                </>
+              ) : (
+                "Keep in touch!"
+              )}
             </span>
-            <FontAwesomeIcon
-              className="gridContact__button--icon"
-              icon={faArrowRight}
-            />
+            {!isSuccessfullySubmitted && (
+              <FontAwesomeIcon
+                className="gridContact__button--icon"
+                icon={faArrowRight}
+              />
+            )}
           </button>
           <div
             className={`gridContact__button--animation ${
